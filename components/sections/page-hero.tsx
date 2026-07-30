@@ -25,21 +25,22 @@ export function PageHero({
       <Container
         className={cn(
           "py-14 sm:py-20 lg:py-24",
-          aside && "grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16"
+          aside &&
+            "grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16",
         )}
       >
         <div>
           <Reveal className={cn(!aside && "max-w-3xl")}>
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-700">
+            <p className="inline-flex rounded-full border-2 border-accent-300 bg-accent-100 px-3.5 py-1 text-sm font-bold text-accent-800">
               {intro.eyebrow}
             </p>
-            <h1 className="font-display mt-3 text-4xl leading-[1.08] text-balance text-ink-950 sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-4 text-4xl leading-[1.08] text-balance text-ink-950 sm:text-5xl lg:text-6xl">
               {intro.title}
             </h1>
             <p
               className={cn(
                 "mt-5 text-lg leading-relaxed text-pretty text-ink-800 sm:text-xl",
-                !aside && "max-w-2xl"
+                !aside && "max-w-2xl",
               )}
             >
               {intro.lead}

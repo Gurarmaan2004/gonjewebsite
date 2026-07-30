@@ -44,7 +44,7 @@ export function Testimonials() {
 
       <ul className="mt-12 grid gap-6 lg:grid-cols-3">
         {testimonials.map((testimonial, index) => (
-          <Reveal as="li" key={testimonial.quote} delay={index * 0.08}>
+          <Reveal as="li" key={testimonial.quote} delay={index * 0.14}>
             <Card as="figure" tone="brand" className="flex h-full flex-col">
               {testimonial.status ? (
                 <Badge tone="success" dot className="self-start">

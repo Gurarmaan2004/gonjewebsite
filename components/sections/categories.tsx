@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
+import { produceAccent } from "@/lib/produce-accents";
+import { cn } from "@/lib/utils";
 import boxSrc from "@/public/grocery-1.webp";
 
 /**
@@ -38,7 +40,7 @@ export function Categories() {
 
       <div className="mt-12 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-14">
         {/* Transparent cutout — sits straight on the section tone, no frame. */}
-        <Reveal>
+        <Reveal variant="left" duration={1}>
           <Image
             src={boxSrc}
             alt="A Gonje delivery box packed with fresh vegetables, fruit, bread, dairy and meat."
@@ -49,7 +51,7 @@ export function Categories() {
 
         <ul className="grid gap-5">
           {categories.items.map((category, index) => (
-            <Reveal as="li" key={category.name} delay={index * 0.08}>
+            <Reveal as="li" variant="right" key={category.name} delay={index * 0.14}>
               <Card className="h-full">
                 <h3 className="font-display text-2xl text-ink-950">
                   {category.name}
@@ -58,11 +60,14 @@ export function Categories() {
                   {category.description}
                 </p>
 
-                <ul className="mt-5 flex flex-wrap gap-2 border-t border-ink-200 pt-5">
-                  {category.examples.map((example) => (
+                <ul className="mt-5 flex flex-wrap gap-2 border-t-2 border-ink-100 pt-5">
+                  {category.examples.map((example, exampleIndex) => (
                     <li
                       key={example}
-                      className="rounded-full border border-brand-300 bg-brand-100 px-3 py-1 text-xs font-medium text-brand-900"
+                      className={cn(
+                        "rounded-full border-2 px-3 py-1 text-xs font-bold",
+                        produceAccent(exampleIndex).pill,
+                      )}
                     >
                       {example}
                     </li>

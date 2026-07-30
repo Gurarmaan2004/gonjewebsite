@@ -1,22 +1,32 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "accent" | "outline" | "ghost" | "inverse";
+type ButtonVariant =
+  "primary" | "accent" | "outline" | "outlineInverse" | "ghost" | "inverse";
 type ButtonSize = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold " +
-  "transition-colors duration-200 " +
+  "inline-flex items-center justify-center gap-2 rounded-full font-bold " +
+  "transition-[background-color,color,border-color,transform] duration-200 " +
+  "active:translate-y-px " +
   // Disabled applies to <button disabled> and to links marked aria-disabled.
   "disabled:pointer-events-none disabled:opacity-50 " +
   "aria-disabled:pointer-events-none aria-disabled:opacity-50";
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "bg-ink-950 text-ink-50 hover:bg-ink-800 active:bg-ink-900",
-  accent: "bg-accent-600 text-white hover:bg-accent-700 active:bg-accent-800",
+  /* The main CTA is green rather than black — the biggest single lift in
+     colour on the page, and green is the brand's designated highlight. */
+  primary: "bg-accent-500 text-white hover:bg-accent-600 active:bg-accent-700",
+  /* Gold fill takes dark text — white on brand-500 would fail contrast. */
+  accent: "bg-brand-500 text-ink-950 hover:bg-brand-400 active:bg-brand-600",
   outline:
-    "border border-ink-300 bg-transparent text-ink-950 hover:bg-ink-100 active:bg-ink-200",
-  ghost: "bg-transparent text-ink-800 hover:bg-ink-100 hover:text-ink-950",
+    "border-2 border-ink-950/15 bg-white/70 text-ink-950 hover:border-accent-400 hover:bg-white",
+  /* Outline for dark sections. `outline` has a white fill, so it cannot just
+     be recoloured with a text override on an ink background. */
+  outlineInverse:
+    "border-2 border-ink-600 bg-transparent text-ink-50 hover:border-accent-400 hover:bg-ink-900",
+  ghost:
+    "bg-transparent text-ink-800 hover:bg-accent-100 hover:text-accent-800",
   inverse: "bg-white text-ink-950 hover:bg-brand-200 active:bg-brand-300",
 };
 
@@ -55,7 +65,14 @@ export function Button(props: ButtonProps) {
   const classes = cn(base, variants[variant], sizes[size], className);
 
   if ("href" in props && props.href !== undefined) {
-    const { href, external, variant: _v, size: _s, className: _c, ...rest } = props;
+    const {
+      href,
+      external,
+      variant: _v,
+      size: _s,
+      className: _c,
+      ...rest
+    } = props;
     void _v;
     void _s;
     void _c;
@@ -81,7 +98,12 @@ export function Button(props: ButtonProps) {
     );
   }
 
-  const { variant: _v, size: _s, className: _c, ...rest } = props as ButtonAsButton;
+  const {
+    variant: _v,
+    size: _s,
+    className: _c,
+    ...rest
+  } = props as ButtonAsButton;
   void _v;
   void _s;
   void _c;

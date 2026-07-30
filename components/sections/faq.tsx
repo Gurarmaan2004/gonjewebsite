@@ -29,22 +29,24 @@ export function Faq() {
         />
 
         <Reveal delay={0.1}>
-          <ul className="divide-y divide-ink-200 border-y border-ink-200">
+          {/* Separate rounded rows rather than a ruled list — softer, and each
+              question reads as its own tappable thing. */}
+          <ul className="space-y-3">
             {faqs.map((faq) => (
               <li key={faq.question}>
-                <details className="group">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left [&::-webkit-details-marker]:hidden">
+                <details className="group rounded-2xl border-2 border-ink-950/10 bg-white px-5 transition-colors open:border-accent-300 hover:border-accent-300">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-4 text-left [&::-webkit-details-marker]:hidden">
                     <h3 className="font-display text-lg text-ink-950 transition-colors group-hover:text-accent-700">
                       {faq.question}
                     </h3>
                     <span
                       aria-hidden="true"
-                      className="grid size-8 shrink-0 place-items-center rounded-full border border-ink-300 text-ink-700 transition-transform duration-200 group-open:rotate-45 group-hover:border-ink-400"
+                      className="grid size-8 shrink-0 place-items-center rounded-full border-2 border-accent-300 bg-accent-100 text-accent-800 transition-transform duration-200 group-open:rotate-45"
                     >
                       <Plus className="size-4" />
                     </span>
                   </summary>
-                  <p className="max-w-2xl pb-5 text-sm leading-relaxed text-ink-700">
+                  <p className="max-w-2xl pb-5 text-base leading-relaxed text-ink-700">
                     {faq.answer}
                   </p>
                 </details>

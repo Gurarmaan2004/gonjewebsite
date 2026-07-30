@@ -9,6 +9,8 @@ import { ProseLink } from "@/components/ui/prose-link";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { produceAccent } from "@/lib/produce-accents";
+import { cn } from "@/lib/utils";
 import storyIllustration from "@/public/animated-person1.svg";
 import detailsIllustration from "@/public/animated-person2.svg";
 
@@ -63,10 +65,15 @@ export default function AboutPage() {
 
         <ul className="mt-12 grid gap-6 sm:grid-cols-2">
           {values.map((value, index) => (
-            <Reveal as="li" key={value.title} delay={index * 0.06}>
+            <Reveal as="li" key={value.title} delay={index * 0.12}>
               <Card tone="brand" className="h-full">
-                <span className="grid size-11 place-items-center rounded-xl border border-accent-200 bg-accent-50 text-accent-700">
-                  <Icon name={value.icon} className="size-5" />
+                <span
+                  className={cn(
+                    "grid size-12 place-items-center rounded-2xl border-2",
+                    produceAccent(index).tile,
+                  )}
+                >
+                  <Icon name={value.icon} className="size-6" />
                 </span>
                 <h3 className="font-display mt-4 text-xl text-ink-950">
                   {value.title}

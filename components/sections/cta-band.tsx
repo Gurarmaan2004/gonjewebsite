@@ -30,7 +30,11 @@ export function CtaBand({
 
         <Reveal delay={0.08} className="shrink-0">
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button href={primaryCta.href} external={primaryCta.external} size="lg">
+            <Button
+              href={primaryCta.href}
+              external={primaryCta.external}
+              size="lg"
+            >
               {primaryCta.label}
               {primaryCta.external ? (
                 <ArrowUpRight className="size-4" aria-hidden="true" />

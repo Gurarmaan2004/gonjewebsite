@@ -50,5 +50,7 @@ export function Icon({
   className?: string;
 }) {
   const Component = icons[name];
-  return <Component className={className} aria-hidden="true" strokeWidth={1.75} />;
+  return (
+    <Component className={className} aria-hidden="true" strokeWidth={1.75} />
+  );
 }

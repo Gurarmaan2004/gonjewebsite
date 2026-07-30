@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Fredoka, Nunito } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-/* Display face — a soft old-style serif. Its SOFT/WONK axes are nudged in
-   globals.css to warm the headings without tipping into novelty. */
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+/* Display face — rounded, chunky and friendly. This is what carries the
+   casual tone; a serif here read as editorial/corporate. */
+const fredoka = Fredoka({
+  variable: "--font-fredoka",
   subsets: ["latin"],
   display: "swap",
-  axes: ["SOFT", "WONK", "opsz"],
+  weight: ["400", "500", "600", "700"],
 });
 
-/* Body / UI face. */
-const manrope = Manrope({
-  variable: "--font-manrope",
+/* Body / UI face — rounded terminals, warm and highly readable at small sizes. */
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
   display: "swap",
 });
@@ -54,8 +54,16 @@ export default function RootLayout({
       /* Opts back in to Next's scroll-behaviour handling on route changes,
          which v16 no longer does by default. */
       data-scroll-behavior="smooth"
-      className={`${manrope.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${nunito.variable} ${fredoka.variable} h-full antialiased`}
     >
+      <head>
+        {/* Scroll reveals are server-rendered with an inline opacity:0. Without
+            JavaScript they would never animate in, leaving the page blank, so
+            force them visible up front. See components/ui/reveal.tsx. */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}[data-brush]{background-size:100% 100%!important}`}</style>
+        </noscript>
+      </head>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );

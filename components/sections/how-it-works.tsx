@@ -8,7 +8,7 @@ import { Steps } from "./steps";
 
 export function HowItWorks() {
   return (
-    <Section id="how-it-works">
+    <Section id="how-it-works" tone="leaf" pattern>
       <SectionHeading
         eyebrow={howItWorks.eyebrow}
         title={howItWorks.title}

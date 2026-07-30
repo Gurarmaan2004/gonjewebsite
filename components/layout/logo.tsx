@@ -28,7 +28,7 @@ export function Logo({
       aria-label={`${site.name} — home`}
       className={cn(
         "inline-flex items-center rounded-md transition-opacity hover:opacity-80",
-        className
+        className,
       )}
     >
       <Image
@@ -39,7 +39,7 @@ export function Logo({
           "h-9 w-auto",
           /* The wordmark's green sits dark against ink-950, so it gets a
              small lift on the footer rather than a recoloured asset. */
-          tone === "inverse" && "brightness-125"
+          tone === "inverse" && "brightness-125",
         )}
       />
     </Link>

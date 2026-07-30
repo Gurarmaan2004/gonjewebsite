@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
+import { BrushUnderline } from "@/components/ui/brush-underline";
 import basketSrc from "@/public/grocery-2.webp";
 
 /**
@@ -22,26 +23,26 @@ export function Hero() {
 
       <Container className="grid items-center gap-10 py-16 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-28">
         <div>
-          <Reveal>
+          <Reveal variant="pop">
             <Badge tone="brand" className="border-brand-400/70 bg-brand-100/80">
               {hero.eyebrow}
             </Badge>
           </Reveal>
 
-          <Reveal delay={0.06}>
+          <Reveal delay={0.12}>
             <h1 className="font-display mt-6 text-4xl leading-[1.05] text-balance text-ink-950 sm:text-5xl lg:text-6xl">
               {hero.title}{" "}
-              <span className="underline-brush">{hero.titleHighlight}</span>
+              <BrushUnderline delay={0.6}>{hero.titleHighlight}</BrushUnderline>
             </h1>
           </Reveal>
 
-          <Reveal delay={0.12}>
+          <Reveal delay={0.26}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-pretty text-ink-800 sm:text-xl">
               {hero.lead}
             </p>
           </Reveal>
 
-          <Reveal delay={0.18}>
+          <Reveal delay={0.4}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button
                 href={hero.primaryCta.href}
@@ -62,14 +63,17 @@ export function Hero() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.24}>
+          <Reveal delay={0.54}>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
               {hero.proofPoints.map((point) => (
                 <li
                   key={point}
                   className="flex items-center gap-2 text-sm font-medium text-ink-800"
                 >
-                  <Check className="size-4 text-accent-600" aria-hidden="true" />
+                  <Check
+                    className="size-4 text-accent-600"
+                    aria-hidden="true"
+                  />
                   {point}
                 </li>
               ))}
@@ -77,7 +81,7 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.2} className="lg:justify-self-end">
+        <Reveal variant="tilt" delay={0.3} duration={1.1} className="lg:justify-self-end">
           <Image
             src={basketSrc}
             alt="An illustrated shopping basket filled with fresh produce, bread and groceries."

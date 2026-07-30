@@ -18,6 +18,7 @@ import { Icon } from "@/components/ui/icon";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { produceAccent } from "@/lib/produce-accents";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -58,9 +59,14 @@ export default function VendorsPage() {
 
         <ul className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
-            <Reveal as="li" key={benefit.title} delay={index * 0.05}>
-              <span className="grid size-11 place-items-center rounded-xl border border-accent-200 bg-accent-50 text-accent-700">
-                <Icon name={benefit.icon} className="size-5" />
+            <Reveal as="li" key={benefit.title} delay={index * 0.12}>
+              <span
+                className={cn(
+                  "grid size-12 place-items-center rounded-2xl border-2",
+                  produceAccent(index).tile,
+                )}
+              >
+                <Icon name={benefit.icon} className="size-6" />
               </span>
               <h3 className="font-display mt-4 text-xl text-ink-950">
                 {benefit.title}
@@ -95,20 +101,22 @@ export default function VendorsPage() {
 
         <ul className="mt-12 grid gap-6 lg:grid-cols-3">
           {plans.items.map((plan, index) => (
-            <Reveal as="li" key={plan.name} delay={index * 0.08}>
+            <Reveal as="li" key={plan.name} delay={index * 0.14}>
               <Card
                 className={cn(
                   "flex h-full flex-col",
                   /* The featured plan is marked by a heavier border and lift,
                      not by a different fill — DESIGN.md §4. */
-                  plan.featured && "border-ink-950 shadow-lift"
+                  plan.featured && "border-ink-950 shadow-lift",
                 )}
               >
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="font-display text-2xl text-ink-950">
                     {plan.name}
                   </h3>
-                  {plan.featured ? <Badge tone="brand">Most popular</Badge> : null}
+                  {plan.featured ? (
+                    <Badge tone="brand">Most popular</Badge>
+                  ) : null}
                 </div>
 
                 <p className="mt-5 flex items-baseline gap-1.5">
@@ -176,7 +184,10 @@ export default function VendorsPage() {
               {included.items.map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-accent-100">
-                    <Check className="size-3.5 text-accent-700" aria-hidden="true" />
+                    <Check
+                      className="size-3.5 text-accent-700"
+                      aria-hidden="true"
+                    />
                   </span>
                   <span className="text-base text-ink-800">{item}</span>
                 </li>
@@ -195,7 +206,7 @@ export default function VendorsPage() {
 
         <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.items.map((step, index) => (
-            <Reveal as="li" key={step.title} delay={index * 0.08}>
+            <Reveal as="li" key={step.title} delay={index * 0.14}>
               <Card tone="ink" className="h-full">
                 <span
                   aria-hidden="true"

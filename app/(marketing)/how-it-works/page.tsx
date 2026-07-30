@@ -16,6 +16,8 @@ import { Icon } from "@/components/ui/icon";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { produceAccent } from "@/lib/produce-accents";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "How it works",
@@ -50,7 +52,9 @@ export default function HowItWorksPage() {
                 key={row.label}
                 className="grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-6"
               >
-                <dt className="font-display text-lg text-ink-950">{row.label}</dt>
+                <dt className="font-display text-lg text-ink-950">
+                  {row.label}
+                </dt>
                 <dd className="sm:text-right">
                   <span className="block font-semibold text-accent-700">
                     {row.value}
@@ -72,9 +76,9 @@ export default function HowItWorksPage() {
 
         <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {payment.groups.map((group, index) => (
-            <Reveal as="li" key={group.heading} delay={index * 0.06}>
+            <Reveal as="li" key={group.heading} delay={index * 0.12}>
               <Card className="h-full">
-                <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ink-500">
+                <h3 className="font-sans text-xs font-bold uppercase tracking-wide text-ink-500">
                   {group.heading}
                 </h3>
                 <ul className="mt-4 space-y-2 text-sm text-ink-800">
@@ -96,9 +100,14 @@ export default function HowItWorksPage() {
 
         <ul className="mt-10 grid gap-8 sm:grid-cols-3">
           {help.map((item, index) => (
-            <Reveal as="li" key={item.title} delay={index * 0.06}>
-              <span className="grid size-11 place-items-center rounded-xl border border-accent-200 bg-accent-50 text-accent-700">
-                <Icon name={item.icon} className="size-5" />
+            <Reveal as="li" key={item.title} delay={index * 0.12}>
+              <span
+                className={cn(
+                  "grid size-12 place-items-center rounded-2xl border-2",
+                  produceAccent(index).tile,
+                )}
+              >
+                <Icon name={item.icon} className="size-6" />
               </span>
               <h3 className="font-display mt-4 text-xl text-ink-950">
                 {item.title}

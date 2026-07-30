@@ -18,7 +18,9 @@ export function DeliveryWindows({ className }: { className?: string }) {
   ];
 
   return (
-    <Card className={cn("w-full max-w-md border-ink-950/10 shadow-lift", className)}>
+    <Card
+      className={cn("w-full max-w-md border-ink-950/10 shadow-lift", className)}
+    >
       <div className="flex items-center justify-between gap-4">
         <h2 className="font-display text-lg text-ink-950">Delivery windows</h2>
         <Badge tone="success" dot>
@@ -39,7 +41,7 @@ export function DeliveryWindows({ className }: { className?: string }) {
       </dl>
 
       <div className="mt-5 rounded-xl border border-ink-200 bg-ink-50 p-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-500">
+        <p className="text-xs font-bold uppercase tracking-wide text-ink-500">
           Pay with
         </p>
         <p className="mt-2 text-sm leading-relaxed text-ink-700">

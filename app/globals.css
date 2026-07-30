@@ -6,69 +6,89 @@
 --------------------------------------------------------------------------- */
 
 @theme {
-  /* Brand — butter. #FBDDA2 is the supplied brand colour, anchored at step 200.
-     It is a surface tone: washes and panels, never a button fill. */
-  --color-brand-50: #fef9f0;
-  --color-brand-100: #fdf0d9;
+  /* Brand — butter/gold. #FBDDA2 is the supplied brand colour, anchored at
+     step 200. The steps around it run hotter than a neutral tint ramp so the
+     scale has genuinely vivid tones to reach for, not just pale washes. */
+  --color-brand-50: #fffbf0;
+  --color-brand-100: #fef3d8;
   --color-brand-200: #fbdda2;
-  --color-brand-300: #f8c86f;
-  --color-brand-400: #f3af3f;
-  --color-brand-500: #ec9520;
-  --color-brand-600: #d07714;
-  --color-brand-700: #a85812;
-  --color-brand-800: #874616;
-  --color-brand-900: #6f3a16;
+  --color-brand-300: #fbcb6b;
+  --color-brand-400: #fbb233;
+  --color-brand-500: #f59a0b;
+  --color-brand-600: #db7a06;
+  --color-brand-700: #b65a09;
+  --color-brand-800: #93470f;
+  --color-brand-900: #7a3b10;
 
-  /* Accent — leaf green. #7CB340 anchored at step 400 (decorative only:
-     green *text* must be 600 or darker to hold AA). */
-  --color-accent-50: #f4f9ec;
-  --color-accent-100: #e7f2d6;
-  --color-accent-200: #cfe5b0;
-  --color-accent-300: #b0d383;
+  /* Accent — leaf green. #7CB340 anchored at step 400. Steps 200/300 are
+     punchy enough to fill whole surfaces; 600+ stay legible as text. */
+  --color-accent-50: #f4fce8;
+  --color-accent-100: #e6f8cb;
+  --color-accent-200: #cdf09d;
+  --color-accent-300: #abe267;
   --color-accent-400: #7cb340;
-  --color-accent-500: #6b9f35;
-  --color-accent-600: #54802a;
-  --color-accent-700: #426324;
-  --color-accent-800: #384f21;
-  --color-accent-900: #30431f;
+  --color-accent-500: #6da033;
+  --color-accent-600: #557f27;
+  --color-accent-700: #426322;
+  --color-accent-800: #37501f;
+  --color-accent-900: #2e421d;
 
-  /* Neutrals — warm ink. Deliberately warm so they sit with the butter tone.
-     Do not use Tailwind's default gray/zinc/slate anywhere in this project. */
-  --color-ink-50: #f9f7f2;
-  --color-ink-100: #f1ede4;
-  --color-ink-200: #e2dbcd;
-  --color-ink-300: #c8beab;
-  --color-ink-400: #a79c86;
-  --color-ink-500: #857b67;
-  --color-ink-600: #6a6152;
-  --color-ink-700: #524b40;
-  --color-ink-800: #3a352d;
-  --color-ink-900: #23201b;
-  --color-ink-950: #0f0e0b;
+  /* Produce accents — a rotating set used across steps, categories and icon
+     tiles so the page reads as a market rather than a single-hue template.
+     Each has a fill (text-safe on white), a surface and a border. */
+  --color-tomato: #d94b28;
+  --color-tomato-surface: #fdece6;
+  --color-tomato-border: #f7c4b4;
+  --color-mango: #c9760a;
+  --color-mango-surface: #fef3d8;
+  --color-mango-border: #fbcb6b;
+  --color-berry: #b83a75;
+  --color-berry-surface: #fbeaf2;
+  --color-berry-border: #f0bdd5;
+  --color-leaf: #557f27;
+  --color-leaf-surface: #f4fce8;
+  --color-leaf-border: #cdf09d;
+
+  /* Neutrals — warm ink, warmer and creamier than a grey ramp so the page
+     never reads as cold. Do not use Tailwind's default gray/zinc/slate. */
+  --color-ink-50: #fffbf2;
+  --color-ink-100: #fbf3e4;
+  --color-ink-200: #f0e5d0;
+  --color-ink-300: #d9c9ac;
+  --color-ink-400: #b3a488;
+  --color-ink-500: #8c7f67;
+  --color-ink-600: #6e6353;
+  --color-ink-700: #524a3e;
+  --color-ink-800: #3a342b;
+  --color-ink-900: #241f19;
+  --color-ink-950: #14100b;
 
   /* Semantic — order-status style messaging. */
-  --color-success: #54802a;
-  --color-success-surface: #f4f9ec;
-  --color-success-border: #cfe5b0;
+  --color-success: #557f27;
+  --color-success-surface: #f4fce8;
+  --color-success-border: #cdf09d;
   --color-warning: #b4690e;
-  --color-warning-surface: #fdf0d9;
-  --color-warning-border: #f8c86f;
-  --color-error: #b3372c;
-  --color-error-surface: #fdf1ef;
-  --color-error-border: #f3c9c4;
+  --color-warning-surface: #fef3d8;
+  --color-warning-border: #fbcb6b;
+  --color-error: #c0392b;
+  --color-error-surface: #fdece6;
+  --color-error-border: #f7c4b4;
   --color-info: #2f6fb0;
   --color-info-surface: #eff5fb;
   --color-info-border: #c6dcef;
 
-  /* One elevation token. Cards are defined by their border first. */
-  --shadow-soft: 0 1px 2px rgb(15 14 11 / 0.04), 0 8px 24px -12px rgb(15 14 11 / 0.12);
-  --shadow-lift: 0 2px 4px rgb(15 14 11 / 0.05), 0 16px 40px -16px rgb(15 14 11 / 0.18);
+  /* Elevation. Shadows are warm-tinted rather than neutral black so they sit
+     on the cream background without greying it. */
+  --shadow-soft: 0 1px 2px rgb(83 63 30 / 0.05), 0 10px 24px -12px rgb(83 63 30 / 0.18);
+  --shadow-lift: 0 2px 6px rgb(83 63 30 / 0.07), 0 20px 44px -16px rgb(83 63 30 / 0.26);
+  /* Flat offset shadow used on playful/"sticker" cards. */
+  --shadow-pop: 4px 4px 0 0 var(--color-ink-950);
 }
 
 /* Font variables come from next/font in app/layout.tsx, so they must be inlined. */
 @theme inline {
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fredoka), var(--font-nunito), ui-sans-serif, sans-serif;
 }
 
 /* ---------------------------------------------------------------------------
@@ -90,31 +110,27 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Headings default to the display face so no component has to remember. */
+  /* Headings default to the display face so no component has to remember.
+     Fredoka is a rounded face — it is set at its natural width with only a
+     hair of negative tracking, not the tight editorial setting a serif wants. */
   h1,
   h2,
   h3 {
     font-family: var(--font-display);
     font-weight: 600;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.005em;
   }
 
   /* Global focus treatment — nothing can ship unfocusable. */
   :focus-visible {
-    outline: 2px solid var(--color-accent-600);
+    outline: 3px solid var(--color-accent-500);
     outline-offset: 2px;
-    border-radius: 2px;
+    border-radius: 4px;
   }
 
   ::selection {
-    background-color: var(--color-brand-200);
+    background-color: var(--color-accent-300);
     color: var(--color-ink-950);
-  }
-
-  /* Fraunces exposes softness and "wonk" axes. Nudging them warms the headings
-     up without tipping into novelty. */
-  .font-display {
-    font-variation-settings: "SOFT" 20, "WONK" 1;
   }
 }
 
@@ -126,15 +142,28 @@
     background-repeat: repeat;
   }
 
-  /* Editorial underline for a highlighted word inside a heading. */
+  /* Seamless line-art produce pattern (public/green-bg1.jpg, 700×350).
+     A tiling texture can't go through next/image, so it is a CSS background.
+     Scaled well below native size so the motifs read as texture, not clip art. */
+  .bg-produce {
+    background-image: url("/green-bg1.jpg");
+    background-repeat: repeat;
+    background-size: 360px auto;
+  }
+
+  /* Hand-drawn marker underline for a highlighted word in a heading.
+     `box-decoration-break: clone` means the bar redraws on every line when the
+     phrase wraps, so <BrushUnderline> can animate background-size safely. */
   .underline-brush {
     background-image: linear-gradient(
       to top,
-      var(--color-accent-300) 0.14em,
-      transparent 0.14em
+      var(--color-accent-300) 0.28em,
+      transparent 0.28em
     );
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 }
 
@@ -152,5 +181,18 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* Reveal elements are server-rendered with an inline opacity:0 / transform
+     from Framer Motion's `initial`. When the reveal doesn't run, these force
+     the content visible — otherwise reduced-motion users get a blank page.
+     Must beat the inline style, hence !important. See components/ui/reveal.tsx. */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [data-brush] {
+    background-size: 100% 100% !important;
   }
 }

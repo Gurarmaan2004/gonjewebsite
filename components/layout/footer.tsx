@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { footerNav } from "@/content/nav";
 import { Container } from "@/components/ui/container";
-import { company, companyAddressLine, service, site, socialLinks } from "@/lib/site";
+import {
+  company,
+  companyAddressLine,
+  service,
+  site,
+  socialLinks,
+} from "@/lib/site";
 import { Logo } from "./logo";
 
 export function Footer() {
@@ -21,11 +27,17 @@ export function Footer() {
 
             <address className="mt-6 space-y-2.5 text-sm not-italic">
               <p className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-accent-400" aria-hidden="true" />
+                <MapPin
+                  className="mt-0.5 size-4 shrink-0 text-accent-400"
+                  aria-hidden="true"
+                />
                 <span>{companyAddressLine}</span>
               </p>
               <p className="flex items-center gap-2.5">
-                <Phone className="size-4 shrink-0 text-accent-400" aria-hidden="true" />
+                <Phone
+                  className="size-4 shrink-0 text-accent-400"
+                  aria-hidden="true"
+                />
                 <a
                   href={`tel:${company.phoneHref}`}
                   className="transition-colors hover:text-ink-50"
@@ -34,7 +46,10 @@ export function Footer() {
                 </a>
               </p>
               <p className="flex items-center gap-2.5">
-                <Mail className="size-4 shrink-0 text-accent-400" aria-hidden="true" />
+                <Mail
+                  className="size-4 shrink-0 text-accent-400"
+                  aria-hidden="true"
+                />
                 <a
                   href={`mailto:${company.email}`}
                   className="transition-colors hover:text-ink-50"
@@ -53,7 +68,7 @@ export function Footer() {
           <div className="grid gap-8 sm:grid-cols-3">
             {footerNav.map((group) => (
               <nav key={group.heading} aria-label={group.heading}>
-                <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ink-500">
+                <h2 className="font-sans text-xs font-bold uppercase tracking-wide text-ink-500">
                   {group.heading}
                 </h2>
                 <ul className="mt-4 space-y-3 text-sm">
@@ -67,7 +82,10 @@ export function Footer() {
                           className="inline-flex items-center gap-1 transition-colors hover:text-ink-50"
                         >
                           {link.label}
-                          <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                          <ArrowUpRight
+                            className="size-3.5"
+                            aria-hidden="true"
+                          />
                         </a>
                       ) : (
                         <Link

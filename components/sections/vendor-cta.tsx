@@ -24,16 +24,19 @@ export function VendorCta() {
 
           <Reveal delay={0.12}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={vendorCta.primaryCta.href} variant="inverse" size="lg">
+              <Button
+                href={vendorCta.primaryCta.href}
+                variant="inverse"
+                size="lg"
+              >
                 {vendorCta.primaryCta.label}
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Button>
               <Button
                 href={vendorCta.secondaryCta.href}
                 external={vendorCta.secondaryCta.external}
-                variant="outline"
+                variant="outlineInverse"
                 size="lg"
-                className="border-ink-700 text-ink-100 hover:bg-ink-900 hover:text-ink-50"
               >
                 {vendorCta.secondaryCta.label}
                 <ArrowUpRight className="size-4" aria-hidden="true" />
@@ -47,7 +50,10 @@ export function VendorCta() {
             {vendorCta.points.map((point) => (
               <li key={point} className="flex items-start gap-3">
                 <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-accent-400/15">
-                  <Check className="size-3.5 text-accent-400" aria-hidden="true" />
+                  <Check
+                    className="size-3.5 text-accent-400"
+                    aria-hidden="true"
+                  />
                 </span>
                 <span className="text-base text-ink-100">{point}</span>
               </li>

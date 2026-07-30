@@ -1,12 +1,15 @@
 import { trust } from "@/content/home";
+import { Card } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
+import { produceAccent } from "@/lib/produce-accents";
+import { cn } from "@/lib/utils";
 
 export function Trust() {
   return (
-    <Section>
+    <Section tone="leaf" pattern>
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <SectionHeading
           eyebrow={trust.eyebrow}
@@ -14,18 +17,27 @@ export function Trust() {
           lead={trust.lead}
         />
 
-        <ul className="grid gap-x-8 gap-y-9 sm:grid-cols-2">
+        {/* Cards rather than bare text, so the features stay readable on the
+            patterned background. */}
+        <ul className="grid gap-5 sm:grid-cols-2">
           {trust.features.map((feature, index) => (
-            <Reveal as="li" key={feature.title} delay={index * 0.06}>
-              <span className="grid size-11 place-items-center rounded-xl border border-accent-200 bg-accent-50 text-accent-700">
-                <Icon name={feature.icon} className="size-5" />
-              </span>
-              <h3 className="font-display mt-4 text-xl text-ink-950">
-                {feature.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-700">
-                {feature.description}
-              </p>
+            <Reveal as="li" variant="scale" key={feature.title} delay={index * 0.12}>
+              <Card className="h-full">
+                <span
+                  className={cn(
+                    "grid size-12 place-items-center rounded-2xl border-2",
+                    produceAccent(index).tile,
+                  )}
+                >
+                  <Icon name={feature.icon} className="size-6" />
+                </span>
+                <h3 className="font-display mt-4 text-xl text-ink-950">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-base leading-relaxed text-ink-700">
+                  {feature.description}
+                </p>
+              </Card>
             </Reveal>
           ))}
         </ul>
