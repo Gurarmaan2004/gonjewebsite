@@ -1,26 +1,156 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------------------------------------------------------------------------
+   Design tokens. Documented in DESIGN.md — keep the two in sync.
+   Tailwind v4 generates utilities directly from these (bg-brand-200, text-ink-700, …).
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* Brand — butter. #FBDDA2 is the supplied brand colour, anchored at step 200.
+     It is a surface tone: washes and panels, never a button fill. */
+  --color-brand-50: #fef9f0;
+  --color-brand-100: #fdf0d9;
+  --color-brand-200: #fbdda2;
+  --color-brand-300: #f8c86f;
+  --color-brand-400: #f3af3f;
+  --color-brand-500: #ec9520;
+  --color-brand-600: #d07714;
+  --color-brand-700: #a85812;
+  --color-brand-800: #874616;
+  --color-brand-900: #6f3a16;
+
+  /* Accent — leaf green. #7CB340 anchored at step 400 (decorative only:
+     green *text* must be 600 or darker to hold AA). */
+  --color-accent-50: #f4f9ec;
+  --color-accent-100: #e7f2d6;
+  --color-accent-200: #cfe5b0;
+  --color-accent-300: #b0d383;
+  --color-accent-400: #7cb340;
+  --color-accent-500: #6b9f35;
+  --color-accent-600: #54802a;
+  --color-accent-700: #426324;
+  --color-accent-800: #384f21;
+  --color-accent-900: #30431f;
+
+  /* Neutrals — warm ink. Deliberately warm so they sit with the butter tone.
+     Do not use Tailwind's default gray/zinc/slate anywhere in this project. */
+  --color-ink-50: #f9f7f2;
+  --color-ink-100: #f1ede4;
+  --color-ink-200: #e2dbcd;
+  --color-ink-300: #c8beab;
+  --color-ink-400: #a79c86;
+  --color-ink-500: #857b67;
+  --color-ink-600: #6a6152;
+  --color-ink-700: #524b40;
+  --color-ink-800: #3a352d;
+  --color-ink-900: #23201b;
+  --color-ink-950: #0f0e0b;
+
+  /* Semantic — order-status style messaging. */
+  --color-success: #54802a;
+  --color-success-surface: #f4f9ec;
+  --color-success-border: #cfe5b0;
+  --color-warning: #b4690e;
+  --color-warning-surface: #fdf0d9;
+  --color-warning-border: #f8c86f;
+  --color-error: #b3372c;
+  --color-error-surface: #fdf1ef;
+  --color-error-border: #f3c9c4;
+  --color-info: #2f6fb0;
+  --color-info-surface: #eff5fb;
+  --color-info-border: #c6dcef;
+
+  /* One elevation token. Cards are defined by their border first. */
+  --shadow-soft: 0 1px 2px rgb(15 14 11 / 0.04), 0 8px 24px -12px rgb(15 14 11 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(15 14 11 / 0.05), 0 16px 40px -16px rgb(15 14 11 / 0.18);
 }
 
+/* Font variables come from next/font in app/layout.tsx, so they must be inlined. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---------------------------------------------------------------------------
+   Base layer
+--------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    /* Next 16 no longer neutralises smooth scrolling during route transitions
+       unless the root element opts in via data-scroll-behavior (set in layout.tsx). */
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink-50);
+    color: var(--color-ink-950);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings default to the display face so no component has to remember. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Global focus treatment — nothing can ship unfocusable. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent-600);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-200);
+    color: var(--color-ink-950);
+  }
+
+  /* Fraunces exposes softness and "wonk" axes. Nudging them warms the headings
+     up without tipping into novelty. */
+  .font-display {
+    font-variation-settings: "SOFT" 20, "WONK" 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Subtle paper grain, used on large brand washes so flat colour doesn't read
+     as a stock gradient card. Inline SVG, so there is no network request. */
+  .bg-grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+
+  /* Editorial underline for a highlighted word inside a heading. */
+  .underline-brush {
+    background-image: linear-gradient(
+      to top,
+      var(--color-accent-300) 0.14em,
+      transparent 0.14em
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+/* Respect the OS setting globally, on top of the per-component
+   useReducedMotion() checks in the Reveal component. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
