@@ -14,6 +14,8 @@ import { PageHero } from "@/components/sections/page-hero";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Tilt } from "@/components/ui/tilt";
+import { TornEdge } from "@/components/ui/torn-edge";
 import { Icon } from "@/components/ui/icon";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
 export default function VendorsPage() {
   return (
     <>
-      <PageHero intro={intro}>
+      <PageHero intro={intro} highlight="delivery business">
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button
             href={introCtas.primary.href}
@@ -62,11 +64,12 @@ export default function VendorsPage() {
             <Reveal as="li" key={benefit.title} delay={index * 0.12}>
               <span
                 className={cn(
-                  "grid size-12 place-items-center rounded-2xl border-2",
+                  "grid size-14 place-items-center border-2 shadow-stamp-sm",
+                  index % 2 === 0 ? "blob-a" : "blob-c",
                   produceAccent(index).tile,
                 )}
               >
-                <Icon name={benefit.icon} className="size-6" />
+                <Icon name={benefit.icon} className="size-7" />
               </span>
               <h3 className="font-display mt-4 text-xl text-spice-ink">
                 {benefit.title}
@@ -80,7 +83,9 @@ export default function VendorsPage() {
       </Section>
 
       {/* Pricing — figures are published on the marketplace vendor application */}
-      <Section tone="muted">
+      <Section tone="muted" className="overflow-hidden">
+        <TornEdge position="top" tone="cream" />
+        <TornEdge position="bottom" tone="cream" />
         <SectionHeading
           eyebrow={plans.eyebrow}
           title={plans.title}
@@ -101,65 +106,79 @@ export default function VendorsPage() {
 
         <ul className="mt-12 grid gap-6 lg:grid-cols-3">
           {plans.items.map((plan, index) => (
-            <Reveal as="li" key={plan.name} delay={index * 0.14}>
-              <Card
-                className={cn(
-                  "flex h-full flex-col",
-                  /* The featured plan is marked by a heavier border and lift,
-                     not by a different fill — DESIGN.md §4. */
-                  plan.featured && "border-spice-ink shadow-lift",
-                )}
+            <Reveal
+              as="li"
+              variant="scale"
+              key={plan.name}
+              delay={index * 0.14}
+            >
+              <Tilt
+                rest={plan.featured ? 0 : index === 0 ? -2.5 : 2.5}
+                lift={10}
               >
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="font-display text-2xl text-spice-ink">
-                    {plan.name}
-                  </h3>
-                  {plan.featured ? (
-                    <Badge tone="brand">Most popular</Badge>
-                  ) : null}
-                </div>
+                <Card
+                  className={cn(
+                    "flex h-full flex-col",
+                    /* The featured plan is marked by a heavier border and lift,
+                     not by a different fill — DESIGN.md §4. */
+                    plan.featured && "border-spice-ink shadow-lift",
+                  )}
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="font-display text-2xl text-spice-ink">
+                      {plan.name}
+                    </h3>
+                    {plan.featured ? (
+                      <Badge tone="brand">Most popular</Badge>
+                    ) : null}
+                  </div>
 
-                <p className="mt-5 flex items-baseline gap-1.5">
-                  <span className="font-display text-4xl text-spice-ink">
-                    {plan.price}
-                  </span>
-                  <span className="text-sm text-spice-ink/65">{plan.period}</span>
-                </p>
-
-                <ul className="mt-6 space-y-3 border-t border-spice-ink/15 pt-6 text-sm">
-                  <li className="flex items-start gap-2.5">
-                    <Check
-                      className="mt-0.5 size-4 shrink-0 text-spice-green"
-                      aria-hidden="true"
-                    />
-                    <span className="font-medium text-spice-ink">
-                      {plan.commission}
+                  <p className="mt-5 flex items-baseline gap-1.5">
+                    <span className="font-display text-4xl text-spice-ink">
+                      {plan.price}
                     </span>
-                  </li>
-                  {plan.warehousing ? (
+                    <span className="text-sm text-spice-ink/65">
+                      {plan.period}
+                    </span>
+                  </p>
+
+                  <ul className="mt-6 space-y-3 border-t border-spice-ink/15 pt-6 text-sm">
                     <li className="flex items-start gap-2.5">
                       <Check
                         className="mt-0.5 size-4 shrink-0 text-spice-green"
                         aria-hidden="true"
                       />
-                      <span className="text-spice-ink/75">{plan.warehousing}</span>
+                      <span className="font-medium text-spice-ink">
+                        {plan.commission}
+                      </span>
                     </li>
-                  ) : null}
-                </ul>
+                    {plan.warehousing ? (
+                      <li className="flex items-start gap-2.5">
+                        <Check
+                          className="mt-0.5 size-4 shrink-0 text-spice-green"
+                          aria-hidden="true"
+                        />
+                        <span className="text-spice-ink/75">
+                          {plan.warehousing}
+                        </span>
+                      </li>
+                    ) : null}
+                  </ul>
 
-                <p className="mt-5 flex-1 text-sm leading-relaxed text-spice-ink/65">
-                  {plan.description}
-                </p>
+                  <p className="mt-5 flex-1 text-sm leading-relaxed text-spice-ink/65">
+                    {plan.description}
+                  </p>
 
-                <Button
-                  href={closingCta.primaryCta.href}
-                  external
-                  variant={plan.featured ? "primary" : "outline"}
-                  className="mt-7 w-full"
-                >
-                  Choose {plan.name}
-                </Button>
-              </Card>
+                  <Button
+                    href={closingCta.primaryCta.href}
+                    external
+                    variant={plan.featured ? "primary" : "outline"}
+                    className="mt-7 w-full"
+                  >
+                    Choose {plan.name}
+                  </Button>
+                </Card>
+              </Tilt>
             </Reveal>
           ))}
         </ul>

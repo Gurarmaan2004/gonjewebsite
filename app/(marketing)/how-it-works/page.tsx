@@ -10,8 +10,10 @@ import {
 import { CtaBand } from "@/components/sections/cta-band";
 import { DeliveryWindows } from "@/components/sections/delivery-windows";
 import { PageHero } from "@/components/sections/page-hero";
-import { Steps } from "@/components/sections/steps";
+import { StepsCollage } from "@/components/sections/steps-collage";
 import { Card } from "@/components/ui/card";
+import { Tilt } from "@/components/ui/tilt";
+import { TornEdge } from "@/components/ui/torn-edge";
 import { Icon } from "@/components/ui/icon";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
@@ -27,7 +29,11 @@ export const metadata: Metadata = {
 export default function HowItWorksPage() {
   return (
     <>
-      <PageHero intro={intro} aside={<DeliveryWindows />} />
+      <PageHero
+        intro={intro}
+        aside={<DeliveryWindows />}
+        highlight="to your door"
+      />
 
       <Section>
         <SectionHeading
@@ -35,10 +41,12 @@ export default function HowItWorksPage() {
           title="Ordering, start to finish"
           lead="Four steps on the marketplace. Nothing to install."
         />
-        <Steps steps={steps} className="mt-12" />
+        <StepsCollage steps={steps} className="mt-16" />
       </Section>
 
-      <Section tone="muted">
+      <Section tone="muted" className="overflow-hidden">
+        <TornEdge position="top" tone="cream" />
+        <TornEdge position="bottom" tone="cream" />
         <SectionHeading
           eyebrow={timing.eyebrow}
           title={timing.title}
@@ -59,7 +67,9 @@ export default function HowItWorksPage() {
                   <span className="block font-semibold text-spice-green">
                     {row.value}
                   </span>
-                  <span className="block text-sm text-spice-ink/65">{row.note}</span>
+                  <span className="block text-sm text-spice-ink/65">
+                    {row.note}
+                  </span>
                 </dd>
               </div>
             ))}
@@ -76,17 +86,24 @@ export default function HowItWorksPage() {
 
         <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {payment.groups.map((group, index) => (
-            <Reveal as="li" key={group.heading} delay={index * 0.12}>
-              <Card className="h-full">
-                <h3 className="font-sans text-xs font-bold uppercase tracking-wide text-spice-ink/55">
-                  {group.heading}
-                </h3>
-                <ul className="mt-4 space-y-2 text-sm text-spice-ink/85">
-                  {group.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </Card>
+            <Reveal
+              as="li"
+              variant="scale"
+              key={group.heading}
+              delay={index * 0.12}
+            >
+              <Tilt rest={index % 2 === 0 ? -2 : 2} lift={8}>
+                <Card className="h-full">
+                  <h3 className="font-sans text-xs font-bold uppercase tracking-wide text-spice-ink/55">
+                    {group.heading}
+                  </h3>
+                  <ul className="mt-4 space-y-2 text-sm text-spice-ink/85">
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </Card>
+              </Tilt>
             </Reveal>
           ))}
         </ul>
@@ -103,11 +120,12 @@ export default function HowItWorksPage() {
             <Reveal as="li" key={item.title} delay={index * 0.12}>
               <span
                 className={cn(
-                  "grid size-12 place-items-center rounded-2xl border-2",
+                  "grid size-14 place-items-center border-2 shadow-stamp-sm",
+                  index % 2 === 0 ? "blob-b" : "blob-c",
                   produceAccent(index).tile,
                 )}
               >
-                <Icon name={item.icon} className="size-6" />
+                <Icon name={item.icon} className="size-7" />
               </span>
               <h3 className="font-display mt-4 text-xl text-spice-ink">
                 {item.title}

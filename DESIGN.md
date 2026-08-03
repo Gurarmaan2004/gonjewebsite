@@ -307,3 +307,37 @@ screen, never one pastel wash. Tokens are `--color-spice-*` in `globals.css`.
   referenced anywhere. The About page figures became `PhotoSlot`s.
 - **Photo slots now waiting on real photography**: *a vendor behind their counter*,
   *a cooked dish close up*, *the team packing an order*, *the West Footscray shopfront*.
+
+### Inner-page parity (2026-08-03)
+`/about`, `/vendors` and `/how-it-works` were brought up to the home page's density:
+
+- **`PageHero`** now carries the home hero's layered ground — paper fibre, a turmeric
+  blob, a produce-tile blob and a torn bottom edge — instead of a flat tonal band. It
+  takes an optional `highlight` prop and splits the title around that substring to place
+  the marker swipe, so `/content` doesn't have to pre-chop titles into fragments.
+  **The highlight must be an exact substring of the title** or it silently no-ops.
+- **`TornEdge`** (`components/ui/torn-edge.tsx`) is the shared ragged band edge. The
+  `bottom` variant uses a different peak run from `top`, so stacked edges don't look
+  like one stamp repeated. Its parent needs `overflow-hidden`.
+- **`/how-it-works` now uses `StepsCollage`**, the same staggered component as the home
+  page, rather than the old equal-width `Steps` grid.
+- Icon tiles across all three pages are organic blobs with ink outlines and offset
+  shadows; card grids get `Tilt` with alternating rest angles. On the pricing grid the
+  featured plan sits upright at 0° while its neighbours tilt, which reads as emphasis
+  without a different fill.
+
+### Mobile menu
+Full-screen translucent overlay (`bg-spice-cream/92` + `backdrop-blur-xl`) at `z-60`,
+above the sticky header, carrying its own logo and close control so the header doesn't
+show through as a second bar. `AnimatePresence` drives entry (fade + 16px drop, expo,
+staggered items) and exit (fade + 12px lift, 0.25s). It is a real `role="dialog"`
+`aria-modal` panel: Escape closes it, body scroll locks, focus moves to the close button
+on open and returns to the trigger on `onExitComplete`. Under reduced motion every
+duration collapses to 0 — the panel still opens and closes, it just cuts.
+
+### Imagery
+`grocery-1.png` (trolley) and `food-1.webp` (tacos) are both **transparent cutouts**, so
+they use `PhotoSlot fit="contain"` — centred on the tone fill with breathing room.
+`fit="cover"` is only for true edge-to-edge photographs; using it on a cutout clips the
+subject. Two slots remain open: *a vendor behind their counter* and *a cooked dish close
+up* in the home hero.

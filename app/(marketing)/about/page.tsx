@@ -5,12 +5,15 @@ import { PageHero } from "@/components/sections/page-hero";
 import { Card } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { PhotoSlot } from "@/components/ui/photo-slot";
+import { TornEdge } from "@/components/ui/torn-edge";
 import { ProseLink } from "@/components/ui/prose-link";
 import { Tilt } from "@/components/ui/tilt";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { produceAccent } from "@/lib/produce-accents";
+import cartSrc from "@/public/grocery-1.png";
+import tacosSrc from "@/public/food-1.webp";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -21,7 +24,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHero intro={intro} />
+      <PageHero intro={intro} highlight="local shops" />
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
@@ -32,9 +35,13 @@ export default function AboutPage() {
             <Reveal delay={0.16} variant="scale">
               <Tilt rest={-3} className="mt-10 w-full max-w-[17rem]">
                 <PhotoSlot
-                  subject="the team packing an order"
+                  src={cartSrc}
+                  alt="A shopping trolley filled with fresh fruit, vegetables and pantry staples."
+                  subject="a full grocery trolley"
                   tone="turmeric"
                   shape="blob-a"
+                  fit="contain"
+                  sizes="(min-width: 1024px) 17rem, 60vw"
                   className="aspect-square w-full"
                 />
               </Tilt>
@@ -56,7 +63,9 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section tone="brand" grain>
+      <Section tone="brand" grain className="overflow-hidden">
+        <TornEdge position="top" tone="cream" />
+        <TornEdge position="bottom" tone="cream" />
         <SectionHeading
           eyebrow="What we hold to"
           title="How we work"
@@ -65,23 +74,31 @@ export default function AboutPage() {
 
         <ul className="mt-12 grid gap-6 sm:grid-cols-2">
           {values.map((value, index) => (
-            <Reveal as="li" key={value.title} delay={index * 0.12}>
-              <Card tone="brand" className="h-full">
-                <span
-                  className={cn(
-                    "grid size-12 place-items-center rounded-2xl border-2",
-                    produceAccent(index).tile,
-                  )}
-                >
-                  <Icon name={value.icon} className="size-6" />
-                </span>
-                <h3 className="font-display mt-4 text-xl text-spice-ink">
-                  {value.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-spice-ink/75">
-                  {value.description}
-                </p>
-              </Card>
+            <Reveal
+              as="li"
+              variant="scale"
+              key={value.title}
+              delay={index * 0.12}
+            >
+              <Tilt rest={index % 2 === 0 ? -2 : 2} lift={8}>
+                <Card tone="brand" className="h-full">
+                  <span
+                    className={cn(
+                      "grid size-14 place-items-center border-2 shadow-stamp-sm",
+                      index % 2 === 0 ? "blob-a" : "blob-d",
+                      produceAccent(index).tile,
+                    )}
+                  >
+                    <Icon name={value.icon} className="size-7" />
+                  </span>
+                  <h3 className="font-display mt-4 text-xl text-spice-ink">
+                    {value.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-spice-ink/75">
+                    {value.description}
+                  </p>
+                </Card>
+              </Tilt>
             </Reveal>
           ))}
         </ul>
@@ -94,9 +111,13 @@ export default function AboutPage() {
             <Reveal delay={0.16} variant="scale">
               <Tilt rest={4} className="mt-10 w-full max-w-[17rem]">
                 <PhotoSlot
-                  subject="the West Footscray shopfront"
+                  src={tacosSrc}
+                  alt="A plate of tacos topped with coriander, salsa and lime."
+                  subject="a cooked dish from a Gonje kitchen"
                   tone="green"
                   shape="blob-c"
+                  fit="contain"
+                  sizes="(min-width: 1024px) 17rem, 60vw"
                   className="aspect-square w-full"
                 />
               </Tilt>

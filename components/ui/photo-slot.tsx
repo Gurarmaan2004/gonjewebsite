@@ -40,6 +40,7 @@ export function PhotoSlot({
   shape = "petal",
   sizes,
   priority = false,
+  fit = "cover",
   className,
 }: {
   src?: StaticImageData | string;
@@ -49,6 +50,13 @@ export function PhotoSlot({
   shape?: SlotShape;
   sizes?: string;
   priority?: boolean;
+  /**
+   * `cover` for true edge-to-edge photographs.
+   * `contain` for transparent cutouts (a plate, a trolley) — the subject is
+   * centred on the tone fill with breathing room, because cropping a cutout to
+   * the frame just clips it and loses the point of the transparency.
+   */
+  fit?: "cover" | "contain";
   className?: string;
 }) {
   const frame = cn(
@@ -58,14 +66,32 @@ export function PhotoSlot({
   );
 
   if (src) {
+    const contain = fit === "contain";
     return (
-      <div className={frame}>
+      <div className={cn(frame, contain && tones[tone])}>
+        {contain ? (
+          <>
+            <div
+              aria-hidden="true"
+              className="bg-produce absolute inset-0 opacity-25 mix-blend-multiply"
+            />
+            <div
+              aria-hidden="true"
+              className="bg-paper absolute inset-0 opacity-25 mix-blend-multiply"
+            />
+          </>
+        ) : null}
         <Image
           src={src}
           alt={alt ?? subject}
           sizes={sizes}
           priority={priority}
-          className="size-full object-cover"
+          className={cn(
+            "relative size-full",
+            contain
+              ? "scale-90 object-contain drop-shadow-[4px_6px_0_rgba(42,29,20,0.20)]"
+              : "object-cover"
+          )}
         />
       </div>
     );
