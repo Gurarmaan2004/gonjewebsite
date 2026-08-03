@@ -35,7 +35,7 @@ export function Header() {
     pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink-200/80 bg-ink-50/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b-2 border-spice-ink/85 bg-spice-cream/95 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between gap-4 sm:h-18">
         <Logo priority />
 
@@ -46,10 +46,10 @@ export function Header() {
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
-                "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                "font-display rounded-lg px-3 py-2 text-base font-bold transition-colors",
                 isActive(item.href)
-                  ? "bg-ink-100 text-ink-950"
-                  : "text-ink-700 hover:bg-ink-100 hover:text-ink-950",
+                  ? "marker-swipe marker-turmeric text-spice-ink"
+                  : "text-spice-ink/70 hover:text-spice-ink",
               )}
             >
               {item.label}
@@ -74,7 +74,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="grid size-10 place-items-center rounded-full text-ink-800 transition-colors hover:bg-ink-100 md:hidden"
+            className="grid size-11 place-items-center rounded-xl border-2 border-spice-ink text-spice-ink shadow-stamp-sm transition-transform hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none md:hidden"
           >
             {open ? (
               <X className="size-5" aria-hidden="true" />
@@ -88,7 +88,7 @@ export function Header() {
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-ink-200 bg-ink-50 md:hidden"
+          className="border-t-2 border-spice-ink/85 bg-spice-cream md:hidden"
         >
           <Container className="flex flex-col gap-1 py-4">
             {primaryNav.map((item) => (
@@ -99,10 +99,10 @@ export function Header() {
                 onClick={() => setOpen(false)}
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className={cn(
-                  "rounded-xl px-4 py-3 text-base font-medium transition-colors",
+                  "font-display shape-tag px-4 py-3 text-lg font-bold transition-colors",
                   isActive(item.href)
-                    ? "bg-ink-100 text-ink-950"
-                    : "text-ink-700 hover:bg-ink-100 hover:text-ink-950",
+                    ? "bg-spice-turmeric text-spice-ink"
+                    : "text-spice-ink/75 hover:bg-spice-cream-deep hover:text-spice-ink",
                 )}
               >
                 {item.label}

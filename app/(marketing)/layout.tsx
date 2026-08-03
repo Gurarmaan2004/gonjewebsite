@@ -14,7 +14,7 @@ export default function MarketingLayout({
     <>
       <a
         href="#main"
-        className="sr-only rounded-full bg-ink-950 px-4 py-2 text-sm font-semibold text-ink-50 focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-100"
+        className="sr-only rounded-xl border-2 border-spice-ink bg-spice-chili px-4 py-2 text-sm font-bold text-spice-cream focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-100"
       >
         Skip to content
       </a>

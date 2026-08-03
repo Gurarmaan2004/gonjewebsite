@@ -43,7 +43,7 @@ export default function VendorsPage() {
             href={introCtas.secondary.href}
             variant="outline"
             size="lg"
-            className="border-ink-950/25 hover:bg-brand-200"
+            className="border-spice-ink/25 hover:bg-spice-turmeric"
           >
             {introCtas.secondary.label}
           </Button>
@@ -68,10 +68,10 @@ export default function VendorsPage() {
               >
                 <Icon name={benefit.icon} className="size-6" />
               </span>
-              <h3 className="font-display mt-4 text-xl text-ink-950">
+              <h3 className="font-display mt-4 text-xl text-spice-ink">
                 {benefit.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-700">
+              <p className="mt-2 text-sm leading-relaxed text-spice-ink/75">
                 {benefit.description}
               </p>
             </Reveal>
@@ -94,7 +94,7 @@ export default function VendorsPage() {
               {plans.offer.label}
             </Badge>
           </div>
-          <p className="mx-auto mt-3 max-w-md text-center text-sm text-ink-600">
+          <p className="mx-auto mt-3 max-w-md text-center text-sm text-spice-ink/65">
             {plans.offer.detail}
           </p>
         </Reveal>
@@ -107,11 +107,11 @@ export default function VendorsPage() {
                   "flex h-full flex-col",
                   /* The featured plan is marked by a heavier border and lift,
                      not by a different fill — DESIGN.md §4. */
-                  plan.featured && "border-ink-950 shadow-lift",
+                  plan.featured && "border-spice-ink shadow-lift",
                 )}
               >
                 <div className="flex items-center justify-between gap-3">
-                  <h3 className="font-display text-2xl text-ink-950">
+                  <h3 className="font-display text-2xl text-spice-ink">
                     {plan.name}
                   </h3>
                   {plan.featured ? (
@@ -120,34 +120,34 @@ export default function VendorsPage() {
                 </div>
 
                 <p className="mt-5 flex items-baseline gap-1.5">
-                  <span className="font-display text-4xl text-ink-950">
+                  <span className="font-display text-4xl text-spice-ink">
                     {plan.price}
                   </span>
-                  <span className="text-sm text-ink-600">{plan.period}</span>
+                  <span className="text-sm text-spice-ink/65">{plan.period}</span>
                 </p>
 
-                <ul className="mt-6 space-y-3 border-t border-ink-200 pt-6 text-sm">
+                <ul className="mt-6 space-y-3 border-t border-spice-ink/15 pt-6 text-sm">
                   <li className="flex items-start gap-2.5">
                     <Check
-                      className="mt-0.5 size-4 shrink-0 text-accent-600"
+                      className="mt-0.5 size-4 shrink-0 text-spice-green"
                       aria-hidden="true"
                     />
-                    <span className="font-medium text-ink-900">
+                    <span className="font-medium text-spice-ink">
                       {plan.commission}
                     </span>
                   </li>
                   {plan.warehousing ? (
                     <li className="flex items-start gap-2.5">
                       <Check
-                        className="mt-0.5 size-4 shrink-0 text-accent-600"
+                        className="mt-0.5 size-4 shrink-0 text-spice-green"
                         aria-hidden="true"
                       />
-                      <span className="text-ink-700">{plan.warehousing}</span>
+                      <span className="text-spice-ink/75">{plan.warehousing}</span>
                     </li>
                   ) : null}
                 </ul>
 
-                <p className="mt-5 flex-1 text-sm leading-relaxed text-ink-600">
+                <p className="mt-5 flex-1 text-sm leading-relaxed text-spice-ink/65">
                   {plan.description}
                 </p>
 
@@ -165,7 +165,7 @@ export default function VendorsPage() {
         </ul>
 
         <Reveal delay={0.2}>
-          <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-ink-600">
+          <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-spice-ink/65">
             {plans.footnote}
           </p>
         </Reveal>
@@ -183,13 +183,13 @@ export default function VendorsPage() {
             <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
               {included.items.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-accent-100">
+                  <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-spice-turmeric/20">
                     <Check
-                      className="size-3.5 text-accent-700"
+                      className="size-3.5 text-spice-green"
                       aria-hidden="true"
                     />
                   </span>
-                  <span className="text-base text-ink-800">{item}</span>
+                  <span className="text-base text-spice-ink/85">{item}</span>
                 </li>
               ))}
             </ul>
@@ -210,14 +210,14 @@ export default function VendorsPage() {
               <Card tone="ink" className="h-full">
                 <span
                   aria-hidden="true"
-                  className="font-display text-2xl text-accent-400"
+                  className="font-marker text-4xl text-spice-turmeric"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-display mt-3 text-xl text-ink-50">
+                <h3 className="font-display mt-3 text-xl text-spice-cream">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-300">
+                <p className="mt-2 text-sm leading-relaxed text-spice-cream/75">
                   {step.description}
                 </p>
               </Card>

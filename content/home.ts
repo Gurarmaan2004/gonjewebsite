@@ -2,17 +2,21 @@ import { externalLinks, service } from "@/lib/site";
 import type { Category, Cta, Feature, Step } from "./types";
 
 export const hero = {
+  /** Handwritten kicker above the headline — set in the marker face. */
+  kicker: "Hello from West Footscray",
   eyebrow: "Melbourne · delivery & pickup",
-  /** `highlight` is rendered with the brush underline treatment. */
-  title: "The local shops you love,",
-  titleHighlight: "brought to your door",
-  lead: `Order from independent restaurants, grocers and specialty suppliers near you. Most food orders arrive in ${service.foodDeliveryWindow} — groceries ${service.groceryDeliveryWindow}.`,
+  /** `titleHighlight` gets the hand-drawn marker swipe behind it. */
+  title: "The shops that stock",
+  titleHighlight: "what you actually cook with",
+  /* Every category named here is verified on the marketplace — see lib/site.ts.
+     Warm phrasing is fine; the nouns are not negotiable. */
+  lead: `Halal and kosher shelves, organic growers, fresh produce and kitchens cooking to order — all from independent shops around Melbourne. Food lands in ${service.foodDeliveryWindow}. Groceries ${service.groceryDeliveryWindow}.`,
   primaryCta: {
     label: "Start an order",
     href: externalLinks.marketplace,
     external: true,
   } satisfies Cta,
-  secondaryCta: { label: "Sell on Gonje", href: "/vendors" } satisfies Cta,
+  secondaryCta: { label: "Sell with us", href: "/vendors" } satisfies Cta,
   /** Short factual proof points sat under the CTAs. */
   proofPoints: [
     `${service.hours}`,
@@ -22,36 +26,37 @@ export const hero = {
 } as const;
 
 export const howItWorks = {
+  kicker: "Nothing to install",
   eyebrow: "How it works",
-  title: "Four steps, then dinner",
-  lead: "Ordering happens on our marketplace. Here's the shape of it before you go.",
+  title: "Four steps. Then you eat.",
+  lead: "The ordering itself happens over on the marketplace. Here's the whole of it, before you go.",
   steps: [
     {
-      title: "Enter your address",
+      title: "Tell us your street",
       description:
-        "We show the vendors that deliver to you, and the pickup centres nearby.",
+        "We'll show you the shops that actually deliver to your door, plus the pickup centres near you.",
       icon: "map-pin",
     },
     {
-      title: "Pick a vendor",
+      title: "Pick your shop",
       description:
-        "Browse local restaurants, grocers and specialty suppliers — each one an independent business.",
+        "Butchers, grocers, bakers and kitchens — every one an independent business, setting its own shelves and its own prices.",
       icon: "store",
     },
     {
-      title: "Fill your basket",
+      title: "Fill the basket",
       description:
-        "Add what you need. You can order across food and groceries in the same session.",
+        "Tonight's dinner and the weekly shop can go in together. Leave a note if you want something cut, wrapped or cooked a particular way.",
       icon: "shopping-basket",
     },
     {
-      title: "Check out",
+      title: "Pay, then watch it come",
       description:
-        "Pay by card, digital wallet, PayPal or buy-now-pay-later, then track it to your door.",
+        "Card, digital wallet, PayPal or pay-later. Then track it from the shop counter to your door.",
       icon: "credit-card",
     },
   ] satisfies readonly Step[],
-  cta: { label: "See it in more detail", href: "/how-it-works" } satisfies Cta,
+  cta: { label: "See the detail", href: "/how-it-works" } satisfies Cta,
 } as const;
 
 export const categories = {

@@ -3,6 +3,11 @@
 Locked-in foundations for gonje.com. Referenced by `CLAUDE.md` §5. Change values here
 and in `app/globals.css` together — `globals.css` is the machine-readable source of truth.
 
+> **Read §8 first.** The Spice Pantry direction is now the site-wide system. §2–§6 still
+> describe the structure (container, rhythm, component states, motion), but the colour
+> ramps and the display face in those sections were **retuned in §8** — the `ink-*`,
+> `brand-*` and `accent-*` hexes quoted below are superseded. `globals.css` is authoritative.
+
 ---
 
 ## 1. Design direction
@@ -89,7 +94,7 @@ each with a matching `-surface` and `-border` token.
 
 | Role | Family | Loaded as | Notes |
 |---|---|---|---|
-| Display / headings | **Fredoka** | `next/font/google`, weights 400–700 | Rounded and chunky; this is what carries the casual tone |
+| Display / headings | **Baloo 2** | `next/font/google` | Superseded Fredoka in §8. Rounder and warmer; the family has Devanagari/Arabic siblings |
 | Body / UI | **Nunito** | `next/font/google`, variable | Rounded terminals, warm, very readable at small sizes |
 
 CSS variables: `--font-display` (`--font-fredoka`), `--font-sans` (`--font-nunito`).
@@ -147,8 +152,8 @@ Every interactive element ships hover, focus-visible and disabled from the start
 - **Buttons** (`components/ui/button.tsx`):
   | Variant | Rest | Use |
   |---|---|---|
-  | `primary` | `accent-500` fill, white text | Main CTA → marketplace |
-  | `accent` | `brand-500` fill, **dark** text | Secondary conversion |
+  | `primary` | `spice-chili` fill, cream text | Main CTA → marketplace |
+  | `accent` | `spice-turmeric` fill, **dark** text | Secondary conversion |
   | `outline` | white/70 fill, 2px border | Secondary **on light sections** |
   | `outlineInverse` | transparent, `ink-600` border, `ink-50` text | Secondary **on `ink` sections** |
   | `ghost` | transparent | Tertiary, nav |
@@ -216,3 +221,89 @@ Tracked from `CLAUDE.md` §8 — all three still need a decision from the client
    is a standard Node build. No contact form is wired yet for this reason.
 3. **Testimonials** — none supplied. `content/testimonials.ts` exports an empty array and
    the section self-hides; no quotes are fabricated.
+
+---
+
+## 8. Spice Pantry — visual direction (2026-08)
+
+Agreed after the previous look was judged to read as **tech consulting** rather than
+hospitality / ethnic-food marketplace. Proven on the home hero and "How it works",
+then **rolled out site-wide on 2026-08-02** — every page, the header and the footer.
+
+The rollout worked by retuning the shared layer rather than editing pages one by one:
+`ink-*` became a warm brown ramp, `brand-*` a turmeric ramp (still holding the mandated
+`#FBDDA2` at step 200), `accent-*` a deep market green, and the produce accent set was
+redrawn from the spice palette. `Button`, `Card`, `Badge`, `Section` and `SectionHeading`
+were converted in place, so most sections followed automatically.
+
+### Palette
+Pulled from real ingredients and used **in combination** — several colour fields per
+screen, never one pastel wash. Tokens are `--color-spice-*` in `globals.css`.
+
+| Token | Hex | Role |
+|---|---|---|
+| `spice-cream` | `#FDF4E3` | Hero ground |
+| `spice-cream-deep` | `#F6E7CC` | Adjacent band, so two sections never share a fill |
+| `spice-turmeric` | `#E9A21B` | Marker swipes, the hero "plate", torn edges |
+| `spice-chili` | `#C8371D` | Primary CTA, scribble circles |
+| `spice-terracotta` | `#A8543A` | Handwritten kickers, fourth step |
+| `spice-green` | `#1E5A3A` | Anchoring strips, secondary CTA |
+| `spice-ink` | `#2A1D14` | All text, and every outline/offset shadow |
+
+### Type
+| Role | Family | Notes |
+|---|---|---|
+| Display | **Baloo 2** (`font-spice`) | Rounder and warmer than Fredoka; the family has Devanagari/Arabic siblings, which suits a multicultural marketplace |
+| Accent | **Caveat** (`font-marker`) | Kickers, step numerals, proof points. **Never body copy** |
+| Body | **Nunito** (`font-sans`) | Retained |
+
+### Structure
+- **No `<Section>`** in these two — that component's job is a flat tonal band, which is
+  the thing being moved away from. Grounds are layered instead: paper fibre + produce
+  tile + an organic colour field + a torn clip-path edge between bands.
+- **Organic shapes** (`.blob-a`–`.blob-d`, `.shape-petal`) instead of rounded rectangles.
+- **Asymmetric collage** — tiles differ in colour, size and resting rotation, and the
+  step row is vertically staggered so nothing shares a baseline.
+- **No pills.** `StampButton` is a squared, ink-outlined block on a hard offset shadow
+  (`--shadow-stamp`) that presses into it on hover.
+- **Handwritten numerals**, large and coloured — not faint grey counters.
+
+### Motion
+`Tilt` gives collage tiles a resting rotation and springs them toward upright on hover
+(stiffness 300, damping 14) — bounce, not a corporate fade. Entrance still uses `Reveal`.
+
+### Two traps, both already hit once
+1. **Marker accents must be background-images, not positioned bars.** `MarkerSwipe`
+   paints via `.marker-swipe` + `box-decoration-break: clone`. A positioned bar stretches
+   the full width of its box the moment the phrase wraps — verified broken at 1440px.
+   The `[data-brush]` reduced-motion/no-JS net needs its own `.marker-swipe` override,
+   or it smears the swipe to full line-height.
+2. **`grocery-1.webp` is a transparent cutout, not a photograph.** Putting it in an
+   outlined `PhotoSlot` frame traces an empty shape around it and reads as broken. It
+   sits loose on a filled shape instead. Only true edge-to-edge photos get frames.
+
+### Open items
+4. **No food or market photography exists.** `PhotoSlot` renders designed textured
+   colour tiles for now and takes a real image via `src` with no re-layout. Slots
+   currently waiting: *a vendor behind their counter*, *a cooked dish, close up*.
+   Photography is the single biggest remaining unlock for this direction.
+5. `grocery-2.webp` and `animated-person1–4.svg` are **retired** from the new sections —
+   flat vector illustration with radiating accents is the style being moved away from.
+
+### Rollout notes
+- **No pills anywhere.** `Button` is now the stamp language site-wide (squared, ink
+  border, offset shadow, presses in on hover); `Badge` uses `.shape-tag`; the
+  `SectionHeading` eyebrow is a handwritten kicker, not a pill.
+- **`Card`** uses `.shape-card` — uneven corner radii, so it reads hand-cut without
+  breaking a text box. `.shape-card-alt` mirrors it where a grid would otherwise repeat.
+- **Every `Section` carries paper fibre** by default; flat colour fields are gone.
+- **Contrast traps found in the sweep**, all fixed — worth re-checking on any new band:
+  - `Card tone="ink"` matched the `ink` Section fill exactly, making those cards
+    invisible. Card ink is now `spice-green` on a `spice-green-deep` band.
+  - Sections on `leaf`/`ink` need `SectionHeading tone="inverse"`, or the heading and
+    kicker render dark-on-dark. The home "Why Gonje" band shipped broken until caught.
+  - Numerals and small text left on `accent-400` went low-contrast on green.
+- **Retired assets**: `grocery-2.webp` and `animated-person1–4.svg` are no longer
+  referenced anywhere. The About page figures became `PhotoSlot`s.
+- **Photo slots now waiting on real photography**: *a vendor behind their counter*,
+  *a cooked dish close up*, *the team packing an order*, *the West Footscray shopfront*.

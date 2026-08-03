@@ -7,21 +7,21 @@
  */
 export const produceAccents = [
   {
-    /* Icon/number tile */
-    tile: "bg-leaf-surface text-leaf border-leaf-border",
-    /* Small pill used for examples and tags */
+    /* Icon/number tile — hand-cut silhouette, ink outline, offset shadow. */
+    tile: "bg-spice-green text-spice-cream border-spice-ink shadow-stamp-sm",
+    /* Small tag used for examples and categories. */
     pill: "border-leaf-border bg-leaf-surface text-leaf",
   },
   {
-    tile: "bg-mango-surface text-mango border-mango-border",
+    tile: "bg-spice-turmeric text-spice-ink border-spice-ink shadow-stamp-sm",
     pill: "border-mango-border bg-mango-surface text-mango",
   },
   {
-    tile: "bg-tomato-surface text-tomato border-tomato-border",
+    tile: "bg-spice-chili text-spice-cream border-spice-ink shadow-stamp-sm",
     pill: "border-tomato-border bg-tomato-surface text-tomato",
   },
   {
-    tile: "bg-berry-surface text-berry border-berry-border",
+    tile: "bg-spice-terracotta text-spice-cream border-spice-ink shadow-stamp-sm",
     pill: "border-berry-border bg-berry-surface text-berry",
   },
 ] as const;

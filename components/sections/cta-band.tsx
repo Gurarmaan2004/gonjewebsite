@@ -20,10 +20,10 @@ export function CtaBand({
     <Section tone="brandStrong" size="sm" grain>
       <div className="flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
         <Reveal className="max-w-xl">
-          <h2 className="font-display text-3xl text-balance text-ink-950 sm:text-4xl">
+          <h2 className="font-display text-3xl text-balance text-spice-ink sm:text-4xl">
             {title}
           </h2>
-          <p className="mt-3 text-lg leading-relaxed text-pretty text-ink-800">
+          <p className="mt-3 text-lg leading-relaxed text-pretty text-spice-ink/85">
             {lead}
           </p>
         </Reveal>
@@ -49,7 +49,7 @@ export function CtaBand({
                 external={secondaryCta.external}
                 variant="outline"
                 size="lg"
-                className="border-ink-950/25 hover:bg-brand-100"
+                className="border-spice-ink/25 hover:bg-spice-turmeric/20"
               >
                 {secondaryCta.label}
               </Button>

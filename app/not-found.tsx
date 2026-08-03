@@ -15,13 +15,13 @@ export default function NotFound() {
       <Header />
       <main className="flex flex-1 flex-col">
         <Container className="flex flex-1 flex-col items-center justify-center py-24 text-center">
-          <p className="text-xs font-bold uppercase tracking-wide text-accent-700">
+          <p className="text-xs font-bold uppercase tracking-wide text-spice-green">
             404
           </p>
-          <h1 className="font-display mt-3 text-4xl text-ink-950 sm:text-5xl">
+          <h1 className="font-display mt-3 text-4xl text-spice-ink sm:text-5xl">
             We couldn&apos;t find that page
           </h1>
-          <p className="mt-4 max-w-md text-lg leading-relaxed text-ink-700">
+          <p className="mt-4 max-w-md text-lg leading-relaxed text-spice-ink/75">
             The link may be out of date. Try the home page, or head straight to
             the marketplace to start an order.
           </p>
@@ -33,11 +33,11 @@ export default function NotFound() {
             </Button>
           </div>
 
-          <p className="mt-10 text-sm text-ink-600">
+          <p className="mt-10 text-sm text-spice-ink/65">
             Looking to sell?{" "}
             <Link
               href="/vendors"
-              className="font-medium text-accent-700 underline decoration-accent-300 underline-offset-4 hover:decoration-accent-600"
+              className="font-medium text-spice-green underline decoration-accent-300 underline-offset-4 hover:decoration-accent-600"
             >
               See vendor plans
             </Link>

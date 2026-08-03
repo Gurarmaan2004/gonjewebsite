@@ -35,16 +35,16 @@ export function Steps({
                 </span>
                 <span
                   aria-hidden="true"
-                  className="font-display text-3xl font-bold text-ink-300"
+                  className="font-marker text-4xl font-bold text-spice-terracotta"
                 >
                   {index + 1}
                 </span>
               </div>
 
-              <h3 className="font-display mt-5 text-xl text-ink-950">
+              <h3 className="font-display mt-5 text-xl text-spice-ink">
                 {step.title}
               </h3>
-              <p className="mt-2 text-base leading-relaxed text-ink-700">
+              <p className="mt-2 text-base leading-relaxed text-spice-ink/75">
                 {step.description}
               </p>
             </Card>

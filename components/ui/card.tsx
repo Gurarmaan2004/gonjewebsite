@@ -3,10 +3,10 @@ import { cn } from "@/lib/utils";
 type CardTone = "default" | "brand" | "ink" | "outline";
 
 const tones: Record<CardTone, string> = {
-  default: "border-ink-950/10 bg-white shadow-soft",
-  brand: "border-brand-300 bg-white shadow-soft",
-  ink: "border-ink-800 bg-ink-900 text-ink-100",
-  outline: "border-ink-200 bg-transparent",
+  default: "border-spice-ink/85 bg-spice-cream shadow-stamp-sm",
+  brand: "border-spice-ink/85 bg-spice-cream shadow-stamp-sm",
+  ink: "border-spice-cream/30 bg-spice-green text-spice-cream",
+  outline: "border-spice-ink/30 bg-transparent",
 };
 
 /**
@@ -31,10 +31,10 @@ export function Card({
   return (
     <Component
       className={cn(
-        "rounded-3xl border-2 p-6 sm:p-7",
+        "shape-card border-2 p-6 sm:p-7",
         tones[tone],
         interactive &&
-          "transition-[box-shadow,transform,border-color] duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:border-accent-400 hover:shadow-lift",
+          "transition-[box-shadow,transform] duration-200 ease-out hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-stamp",
         className,
       )}
       {...props}

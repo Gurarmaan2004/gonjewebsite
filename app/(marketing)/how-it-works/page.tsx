@@ -46,20 +46,20 @@ export default function HowItWorksPage() {
         />
 
         <Reveal delay={0.1}>
-          <dl className="mt-10 divide-y divide-ink-200 border-y border-ink-200">
+          <dl className="mt-10 divide-y divide-spice-ink/15 border-y border-spice-ink/15">
             {timing.rows.map((row) => (
               <div
                 key={row.label}
                 className="grid gap-1 py-5 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-6"
               >
-                <dt className="font-display text-lg text-ink-950">
+                <dt className="font-display text-lg text-spice-ink">
                   {row.label}
                 </dt>
                 <dd className="sm:text-right">
-                  <span className="block font-semibold text-accent-700">
+                  <span className="block font-semibold text-spice-green">
                     {row.value}
                   </span>
-                  <span className="block text-sm text-ink-600">{row.note}</span>
+                  <span className="block text-sm text-spice-ink/65">{row.note}</span>
                 </dd>
               </div>
             ))}
@@ -78,10 +78,10 @@ export default function HowItWorksPage() {
           {payment.groups.map((group, index) => (
             <Reveal as="li" key={group.heading} delay={index * 0.12}>
               <Card className="h-full">
-                <h3 className="font-sans text-xs font-bold uppercase tracking-wide text-ink-500">
+                <h3 className="font-sans text-xs font-bold uppercase tracking-wide text-spice-ink/55">
                   {group.heading}
                 </h3>
-                <ul className="mt-4 space-y-2 text-sm text-ink-800">
+                <ul className="mt-4 space-y-2 text-sm text-spice-ink/85">
                   {group.items.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -109,10 +109,10 @@ export default function HowItWorksPage() {
               >
                 <Icon name={item.icon} className="size-6" />
               </span>
-              <h3 className="font-display mt-4 text-xl text-ink-950">
+              <h3 className="font-display mt-4 text-xl text-spice-ink">
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-700">
+              <p className="mt-2 text-sm leading-relaxed text-spice-ink/75">
                 {item.description}
               </p>
             </Reveal>

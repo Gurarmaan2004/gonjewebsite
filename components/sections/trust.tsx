@@ -15,6 +15,7 @@ export function Trust() {
           eyebrow={trust.eyebrow}
           title={trust.title}
           lead={trust.lead}
+          tone="inverse"
         />
 
         {/* Cards rather than bare text, so the features stay readable on the
@@ -31,10 +32,10 @@ export function Trust() {
                 >
                   <Icon name={feature.icon} className="size-6" />
                 </span>
-                <h3 className="font-display mt-4 text-xl text-ink-950">
+                <h3 className="font-display mt-4 text-xl text-spice-ink">
                   {feature.title}
                 </h3>
-                <p className="mt-2 text-base leading-relaxed text-ink-700">
+                <p className="mt-2 text-base leading-relaxed text-spice-ink/75">
                   {feature.description}
                 </p>
               </Card>

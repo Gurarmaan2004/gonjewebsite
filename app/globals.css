@@ -9,86 +9,115 @@
   /* Brand — butter/gold. #FBDDA2 is the supplied brand colour, anchored at
      step 200. The steps around it run hotter than a neutral tint ramp so the
      scale has genuinely vivid tones to reach for, not just pale washes. */
-  --color-brand-50: #fffbf0;
-  --color-brand-100: #fef3d8;
+  --color-brand-50: #fff9ec;
+  --color-brand-100: #fdefcf;
   --color-brand-200: #fbdda2;
-  --color-brand-300: #fbcb6b;
-  --color-brand-400: #fbb233;
-  --color-brand-500: #f59a0b;
-  --color-brand-600: #db7a06;
-  --color-brand-700: #b65a09;
-  --color-brand-800: #93470f;
-  --color-brand-900: #7a3b10;
+  --color-brand-300: #f5c56e;
+  --color-brand-400: #efb03c;
+  --color-brand-500: #e9a21b;
+  --color-brand-600: #c9820c;
+  --color-brand-700: #a3660c;
+  --color-brand-800: #834f10;
+  --color-brand-900: #6b4011;
 
   /* Accent — leaf green. #7CB340 anchored at step 400. Steps 200/300 are
      punchy enough to fill whole surfaces; 600+ stay legible as text. */
-  --color-accent-50: #f4fce8;
-  --color-accent-100: #e6f8cb;
-  --color-accent-200: #cdf09d;
-  --color-accent-300: #abe267;
-  --color-accent-400: #7cb340;
-  --color-accent-500: #6da033;
-  --color-accent-600: #557f27;
-  --color-accent-700: #426322;
-  --color-accent-800: #37501f;
-  --color-accent-900: #2e421d;
+  --color-accent-50: #eff7f0;
+  --color-accent-100: #d8ecdc;
+  --color-accent-200: #b0d8ba;
+  --color-accent-300: #7fbd90;
+  --color-accent-400: #4e9c68;
+  --color-accent-500: #2f7b4b;
+  --color-accent-600: #1e5a3a;
+  --color-accent-700: #17462d;
+  --color-accent-800: #133823;
+  --color-accent-900: #0f2c1c;
 
   /* Produce accents — a rotating set used across steps, categories and icon
      tiles so the page reads as a market rather than a single-hue template.
      Each has a fill (text-safe on white), a surface and a border. */
-  --color-tomato: #d94b28;
-  --color-tomato-surface: #fdece6;
-  --color-tomato-border: #f7c4b4;
-  --color-mango: #c9760a;
-  --color-mango-surface: #fef3d8;
-  --color-mango-border: #fbcb6b;
-  --color-berry: #b83a75;
-  --color-berry-surface: #fbeaf2;
-  --color-berry-border: #f0bdd5;
-  --color-leaf: #557f27;
-  --color-leaf-surface: #f4fce8;
-  --color-leaf-border: #cdf09d;
+  --color-tomato: #c8371d;
+  --color-tomato-surface: #fbe7e1;
+  --color-tomato-border: #eeb5a4;
+  --color-mango: #a3660c;
+  --color-mango-surface: #fdefcf;
+  --color-mango-border: #f5c56e;
+  --color-berry: #a8543a;
+  --color-berry-surface: #f7e6de;
+  --color-berry-border: #dcae99;
+  --color-leaf: #1e5a3a;
+  --color-leaf-surface: #eff7f0;
+  --color-leaf-border: #b0d8ba;
 
   /* Neutrals — warm ink, warmer and creamier than a grey ramp so the page
      never reads as cold. Do not use Tailwind's default gray/zinc/slate. */
-  --color-ink-50: #fffbf2;
-  --color-ink-100: #fbf3e4;
-  --color-ink-200: #f0e5d0;
-  --color-ink-300: #d9c9ac;
-  --color-ink-400: #b3a488;
-  --color-ink-500: #8c7f67;
-  --color-ink-600: #6e6353;
-  --color-ink-700: #524a3e;
-  --color-ink-800: #3a342b;
-  --color-ink-900: #241f19;
-  --color-ink-950: #14100b;
+  --color-ink-50: #fdf4e3;
+  --color-ink-100: #f6e7cc;
+  --color-ink-200: #ead7b4;
+  --color-ink-300: #d6bc90;
+  --color-ink-400: #b2946b;
+  --color-ink-500: #8c7350;
+  --color-ink-600: #6b563c;
+  --color-ink-700: #52402d;
+  --color-ink-800: #3d2f21;
+  --color-ink-900: #2a1d14;
+  --color-ink-950: #1a110a;
 
   /* Semantic — order-status style messaging. */
-  --color-success: #557f27;
-  --color-success-surface: #f4fce8;
-  --color-success-border: #cdf09d;
-  --color-warning: #b4690e;
-  --color-warning-surface: #fef3d8;
-  --color-warning-border: #fbcb6b;
-  --color-error: #c0392b;
-  --color-error-surface: #fdece6;
-  --color-error-border: #f7c4b4;
+  --color-success: #1e5a3a;
+  --color-success-surface: #eff7f0;
+  --color-success-border: #b0d8ba;
+  --color-warning: #a3660c;
+  --color-warning-surface: #fdefcf;
+  --color-warning-border: #f5c56e;
+  --color-error: #c8371d;
+  --color-error-surface: #fbe7e1;
+  --color-error-border: #eeb5a4;
   --color-info: #2f6fb0;
   --color-info-surface: #eff5fb;
   --color-info-border: #c6dcef;
+
+  /* ---------------------------------------------------------------------
+     SPICE PANTRY — the 2026-08 visual direction (DESIGN.md §8).
+     Pulled from real ingredients, and meant to be used in COMBINATION:
+     several colour fields per screen, never one pastel wash.
+
+     Currently scoped to the home hero and "How it works". The older brand and
+     accent ramps above still drive the rest of the site until this direction
+     is approved and rolled out.
+  --------------------------------------------------------------------- */
+  --color-spice-cream: #fdf4e3;
+  --color-spice-cream-deep: #f6e7cc;
+  --color-spice-turmeric: #e9a21b;
+  --color-spice-turmeric-deep: #c9820c;
+  --color-spice-chili: #c8371d;
+  --color-spice-chili-deep: #9f2712;
+  --color-spice-terracotta: #a8543a;
+  --color-spice-terracotta-deep: #85402b;
+  --color-spice-green: #1e5a3a;
+  --color-spice-green-deep: #123d26;
+  --color-spice-ink: #2a1d14;
+
+  /* Hard offset shadow — the "stamp/sticker" cue that replaces soft SaaS
+     elevation. Buttons and collage tiles press into it on hover. */
+  --shadow-stamp: 5px 5px 0 0 var(--color-spice-ink);
+  --shadow-stamp-sm: 3px 3px 0 0 var(--color-spice-ink);
 
   /* Elevation. Shadows are warm-tinted rather than neutral black so they sit
      on the cream background without greying it. */
   --shadow-soft: 0 1px 2px rgb(83 63 30 / 0.05), 0 10px 24px -12px rgb(83 63 30 / 0.18);
   --shadow-lift: 0 2px 6px rgb(83 63 30 / 0.07), 0 20px 44px -16px rgb(83 63 30 / 0.26);
   /* Flat offset shadow used on playful/"sticker" cards. */
-  --shadow-pop: 4px 4px 0 0 var(--color-ink-950);
+  --shadow-pop: 4px 4px 0 0 var(--color-spice-ink);
 }
 
 /* Font variables come from next/font in app/layout.tsx, so they must be inlined. */
 @theme inline {
   --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fredoka), var(--font-nunito), ui-sans-serif, sans-serif;
+  --font-display: var(--font-baloo), var(--font-nunito), ui-sans-serif, sans-serif;
+  /* Spice Pantry pairing — rounded display + handwritten accent. */
+  --font-spice: var(--font-baloo), var(--font-nunito), ui-sans-serif, sans-serif;
+  --font-marker: var(--font-caveat), ui-sans-serif, cursive;
 }
 
 /* ---------------------------------------------------------------------------
@@ -123,14 +152,14 @@
 
   /* Global focus treatment — nothing can ship unfocusable. */
   :focus-visible {
-    outline: 3px solid var(--color-accent-500);
+    outline: 3px solid var(--color-spice-chili);
     outline-offset: 2px;
     border-radius: 4px;
   }
 
   ::selection {
-    background-color: var(--color-accent-300);
-    color: var(--color-ink-950);
+    background-color: var(--color-spice-turmeric);
+    color: var(--color-spice-ink);
   }
 }
 
@@ -149,6 +178,73 @@
     background-image: url("/green-bg1.jpg");
     background-repeat: repeat;
     background-size: 360px auto;
+  }
+
+  /* ---------------------------------------------------------------------
+     Spice Pantry — organic shapes and texture.
+     Collage tiles use asymmetric border-radii rather than rounded rectangles;
+     four variants so adjacent shapes never repeat.
+  --------------------------------------------------------------------- */
+  .blob-a {
+    border-radius: 62% 38% 46% 54% / 60% 55% 45% 40%;
+  }
+  .blob-b {
+    border-radius: 40% 60% 63% 37% / 47% 42% 58% 53%;
+  }
+  .blob-c {
+    border-radius: 55% 45% 38% 62% / 38% 58% 42% 62%;
+  }
+  .blob-d {
+    border-radius: 48% 52% 58% 42% / 62% 38% 62% 38%;
+  }
+
+  /* Softer than a blob, rounder than a card — used for photo frames so the
+     image still reads as a photo rather than a sticker. */
+  .shape-petal {
+    border-radius: 42% 42% 38% 38% / 12% 12% 10% 10%;
+  }
+
+  /* Content cards need to hold running text, so they can't be true blobs.
+     Uneven corner radii read as hand-cut without breaking the text box.
+     `.shape-card-alt` mirrors it, so a grid never repeats the same silhouette. */
+  .shape-card {
+    border-radius: 1.85rem 0.9rem 1.85rem 0.9rem;
+  }
+  .shape-card-alt {
+    border-radius: 0.9rem 1.85rem 0.9rem 1.85rem;
+  }
+
+  /* Small tag/label shape — squared off, deliberately not a pill. */
+  .shape-tag {
+    border-radius: 0.7rem 0.3rem 0.7rem 0.3rem;
+  }
+
+  /* Warm paper fibre. Denser and browner than .bg-grain so a cream field
+     reads as stock, not as flat #FDF4E3. */
+  .bg-paper {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='4'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.5'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+
+  /* Hand-drawn marker swipe, as a background-image rather than a positioned
+     bar. A positioned bar stretches across the whole box when the phrase
+     wraps; a background with box-decoration-break: clone redraws per line.
+     Colour is baked into each data URI because CSS vars can't reach inside one. */
+  .marker-swipe {
+    background-repeat: no-repeat;
+    background-position: 0 92%;
+    background-size: 100% 0.46em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .marker-turmeric {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 44' preserveAspectRatio='none'%3E%3Cpath d='M4,30 C40,20 78,34 120,25 C168,15 214,31 258,21 C274,17 288,23 296,19 L297,40 C270,44 232,36 190,42 C142,48 96,34 52,41 C32,44 14,39 3,41 Z' fill='%23E9A21B' opacity='0.9'/%3E%3C/svg%3E");
+  }
+  .marker-chili {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 44' preserveAspectRatio='none'%3E%3Cpath d='M4,30 C40,20 78,34 120,25 C168,15 214,31 258,21 C274,17 288,23 296,19 L297,40 C270,44 232,36 190,42 C142,48 96,34 52,41 C32,44 14,39 3,41 Z' fill='%23C8371D' opacity='0.85'/%3E%3C/svg%3E");
+  }
+  .marker-green {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 44' preserveAspectRatio='none'%3E%3Cpath d='M4,30 C40,20 78,34 120,25 C168,15 214,31 258,21 C274,17 288,23 296,19 L297,40 C270,44 232,36 190,42 C142,48 96,34 52,41 C32,44 14,39 3,41 Z' fill='%231E5A3A' opacity='0.85'/%3E%3C/svg%3E");
   }
 
   /* Hand-drawn marker underline for a highlighted word in a heading.
@@ -194,5 +290,11 @@
 
   [data-brush] {
     background-size: 100% 100% !important;
+  }
+
+  /* The swipe is a short band, not a full-height fill — reset it to its own
+     resting size rather than the generic one above. */
+  [data-brush].marker-swipe {
+    background-size: 100% 0.46em !important;
   }
 }

@@ -34,19 +34,19 @@ export function Faq() {
           <ul className="space-y-3">
             {faqs.map((faq) => (
               <li key={faq.question}>
-                <details className="group rounded-2xl border-2 border-ink-950/10 bg-white px-5 transition-colors open:border-accent-300 hover:border-accent-300">
+                <details className="group rounded-2xl border-2 border-spice-ink/10 bg-spice-cream px-5 transition-colors open:border-spice-ink/20 hover:border-spice-ink/20">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-4 text-left [&::-webkit-details-marker]:hidden">
-                    <h3 className="font-display text-lg text-ink-950 transition-colors group-hover:text-accent-700">
+                    <h3 className="font-display text-lg text-spice-ink transition-colors group-hover:text-spice-green">
                       {faq.question}
                     </h3>
                     <span
                       aria-hidden="true"
-                      className="grid size-8 shrink-0 place-items-center rounded-full border-2 border-accent-300 bg-accent-100 text-accent-800 transition-transform duration-200 group-open:rotate-45"
+                      className="grid size-8 shrink-0 place-items-center rounded-full border-2 border-spice-ink/20 bg-spice-turmeric/20 text-spice-green transition-transform duration-200 group-open:rotate-45"
                     >
                       <Plus className="size-4" />
                     </span>
                   </summary>
-                  <p className="max-w-2xl pb-5 text-base leading-relaxed text-ink-700">
+                  <p className="max-w-2xl pb-5 text-base leading-relaxed text-spice-ink/75">
                     {faq.answer}
                   </p>
                 </details>

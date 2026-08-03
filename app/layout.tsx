@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fredoka, Nunito } from "next/font/google";
+import { Baloo_2, Caveat, Fredoka, Nunito } from "next/font/google";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -15,6 +15,21 @@ const fredoka = Fredoka({
 /* Body / UI face — rounded terminals, warm and highly readable at small sizes. */
 const nunito = Nunito({
   variable: "--font-nunito",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+/* Spice Pantry display face — rounder and warmer than Fredoka, and the family
+   carries Devanagari/Arabic siblings, which suits a multicultural marketplace. */
+const baloo = Baloo_2({
+  variable: "--font-baloo",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+/* Handwritten accent for kickers, callouts and step numerals. Never body copy. */
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
   display: "swap",
 });
@@ -54,14 +69,14 @@ export default function RootLayout({
       /* Opts back in to Next's scroll-behaviour handling on route changes,
          which v16 no longer does by default. */
       data-scroll-behavior="smooth"
-      className={`${nunito.variable} ${fredoka.variable} h-full antialiased`}
+      className={`${nunito.variable} ${fredoka.variable} ${baloo.variable} ${caveat.variable} h-full antialiased`}
     >
       <head>
         {/* Scroll reveals are server-rendered with an inline opacity:0. Without
             JavaScript they would never animate in, leaving the page blank, so
             force them visible up front. See components/ui/reveal.tsx. */}
         <noscript>
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important}[data-brush]{background-size:100% 100%!important}`}</style>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}[data-brush]{background-size:100% 100%!important}[data-brush].marker-swipe{background-size:100% 0.46em!important}`}</style>
         </noscript>
       </head>
       <body className="flex min-h-full flex-col">{children}</body>

@@ -12,7 +12,7 @@ type BadgeTone =
   | "berry";
 
 const tones: Record<BadgeTone, string> = {
-  neutral: "border-ink-300 bg-ink-100 text-ink-800",
+  neutral: "border-spice-ink/25 bg-spice-cream-deep text-spice-ink",
   brand: "border-brand-400 bg-brand-200 text-brand-900",
   accent: "border-accent-300 bg-accent-100 text-accent-800",
   success: "border-success-border bg-success-surface text-success",
@@ -37,7 +37,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border-2 px-3.5 py-1 text-xs font-bold",
+        "font-display shape-tag inline-flex items-center gap-1.5 border-2 px-3 py-1 text-xs font-bold",
         tones[tone],
         className,
       )}
@@ -45,8 +45,8 @@ export function Badge({
     >
       {dot ? (
         <span className="relative flex size-2">
-          <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent-400 opacity-75" />
-          <span className="relative inline-flex size-2 rounded-full bg-accent-500" />
+          <span className="absolute inline-flex size-full animate-ping rounded-full bg-spice-turmeric opacity-75" />
+          <span className="relative inline-flex size-2 rounded-full bg-spice-turmeric-deep" />
         </span>
       ) : null}
       {children}

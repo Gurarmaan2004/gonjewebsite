@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 
 /** Inline link styling for body copy — DESIGN.md §5. */
 const proseLinkClasses =
-  "font-medium text-accent-700 underline decoration-accent-300 underline-offset-4 " +
-  "transition-colors hover:text-accent-800 hover:decoration-accent-600";
+  "font-medium text-spice-green underline decoration-accent-300 underline-offset-4 " +
+  "transition-colors hover:text-spice-green hover:decoration-accent-600";
 
 export function ProseLink({
   href,

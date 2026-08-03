@@ -53,19 +53,19 @@ export function Categories() {
           {categories.items.map((category, index) => (
             <Reveal as="li" variant="right" key={category.name} delay={index * 0.14}>
               <Card className="h-full">
-                <h3 className="font-display text-2xl text-ink-950">
+                <h3 className="font-display text-2xl text-spice-ink">
                   {category.name}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-700">
+                <p className="mt-2 text-sm leading-relaxed text-spice-ink/75">
                   {category.description}
                 </p>
 
-                <ul className="mt-5 flex flex-wrap gap-2 border-t-2 border-ink-100 pt-5">
+                <ul className="mt-5 flex flex-wrap gap-2 border-t-2 border-spice-ink/10 pt-5">
                   {category.examples.map((example, exampleIndex) => (
                     <li
                       key={example}
                       className={cn(
-                        "rounded-full border-2 px-3 py-1 text-xs font-bold",
+                        "shape-tag border-2 px-3 py-1 text-xs font-bold",
                         produceAccent(exampleIndex).pill,
                       )}
                     >

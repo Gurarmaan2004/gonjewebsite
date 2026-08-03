@@ -12,12 +12,12 @@ const sizes: Record<SectionSize, string> = {
 };
 
 const tones: Record<SectionTone, string> = {
-  default: "bg-ink-50 text-ink-950",
-  muted: "bg-ink-100 text-ink-950",
-  brand: "bg-brand-100 text-ink-950",
-  brandStrong: "bg-brand-200 text-ink-950",
-  ink: "bg-ink-950 text-ink-50",
-  leaf: "bg-accent-50 text-ink-950",
+  default: "bg-spice-cream text-spice-ink",
+  muted: "bg-spice-cream-deep text-spice-ink",
+  brand: "bg-spice-turmeric/25 text-spice-ink",
+  brandStrong: "bg-spice-turmeric text-spice-ink",
+  ink: "bg-spice-green-deep text-spice-cream",
+  leaf: "bg-spice-green text-spice-cream",
 };
 
 /**
@@ -51,6 +51,11 @@ export function Section({
       className={cn("relative isolate", sizes[size], tones[tone], className)}
       {...props}
     >
+      <div
+        aria-hidden="true"
+        className="bg-paper pointer-events-none absolute inset-0 -z-10 opacity-[0.22] mix-blend-multiply"
+      />
+
       {pattern ? (
         <div
           aria-hidden="true"

@@ -36,13 +36,12 @@ export function SectionHeading({
         className,
       )}
     >
+      {/* Handwritten kicker, not a pill badge — see DESIGN.md §8. */}
       {eyebrow ? (
         <p
           className={cn(
-            "inline-flex rounded-full border-2 px-3.5 py-1 text-sm font-bold",
-            inverse
-              ? "border-accent-400/40 bg-accent-400/15 text-accent-300"
-              : "border-accent-300 bg-accent-100 text-accent-800",
+            "font-marker text-2xl sm:text-3xl",
+            inverse ? "text-spice-turmeric" : "text-spice-terracotta",
           )}
         >
           {eyebrow}
@@ -51,11 +50,11 @@ export function SectionHeading({
 
       <Heading
         className={cn(
-          "font-display mt-4 text-balance",
+          "font-display mt-1 text-balance",
           Heading === "h1"
             ? "text-4xl sm:text-5xl lg:text-6xl"
             : "text-3xl sm:text-4xl lg:text-[2.75rem]",
-          inverse ? "text-ink-50" : "text-ink-950",
+          inverse ? "text-spice-cream" : "text-spice-ink",
         )}
       >
         {title}
@@ -65,7 +64,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-4 text-lg leading-relaxed text-pretty sm:text-xl",
-            inverse ? "text-ink-300" : "text-ink-700",
+            inverse ? "text-spice-cream/75" : "text-spice-ink/75",
           )}
         >
           {lead}

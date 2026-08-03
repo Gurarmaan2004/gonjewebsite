@@ -19,11 +19,11 @@ export function Testimonials() {
 
     return (
       <Section tone="brand" size="sm">
-        <div className="rounded-2xl border border-dashed border-brand-400 p-8 text-center">
+        <div className="rounded-2xl border border-dashed border-spice-ink p-8 text-center">
           <Badge tone="warning">Placeholder — dev only</Badge>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink-700">
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-spice-ink/75">
             Customer testimonials section. Add real, supplied quotes to{" "}
-            <code className="rounded bg-brand-100 px-1.5 py-0.5 text-xs">
+            <code className="rounded bg-spice-turmeric/20 px-1.5 py-0.5 text-xs">
               content/testimonials.ts
             </code>{" "}
             and this section renders automatically. Nothing is shown in
@@ -52,15 +52,15 @@ export function Testimonials() {
                 </Badge>
               ) : null}
 
-              <blockquote className="font-display mt-4 flex-1 text-lg leading-relaxed text-ink-900">
+              <blockquote className="font-display mt-4 flex-1 text-lg leading-relaxed text-spice-ink">
                 “{testimonial.quote}”
               </blockquote>
 
-              <figcaption className="mt-6 border-t border-ink-200 pt-4 text-sm">
-                <span className="font-semibold text-ink-950">
+              <figcaption className="mt-6 border-t border-spice-ink/15 pt-4 text-sm">
+                <span className="font-semibold text-spice-ink">
                   {testimonial.author}
                 </span>
-                <span className="text-ink-600"> · {testimonial.location}</span>
+                <span className="text-spice-ink/65"> · {testimonial.location}</span>
               </figcaption>
             </Card>
           </Reveal>

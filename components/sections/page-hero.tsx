@@ -16,10 +16,10 @@ export function PageHero({
   aside?: React.ReactNode;
 }) {
   return (
-    <section className="relative isolate overflow-hidden border-b border-brand-300 bg-brand-100">
+    <section className="relative isolate overflow-hidden border-b border-spice-ink/20 bg-spice-cream-deep">
       <div
         aria-hidden="true"
-        className="bg-grain pointer-events-none absolute inset-0 -z-10 opacity-15 mix-blend-multiply"
+        className="bg-paper pointer-events-none absolute inset-0 -z-10 opacity-25 mix-blend-multiply"
       />
 
       <Container
@@ -31,15 +31,15 @@ export function PageHero({
       >
         <div>
           <Reveal className={cn(!aside && "max-w-3xl")}>
-            <p className="inline-flex rounded-full border-2 border-accent-300 bg-accent-100 px-3.5 py-1 text-sm font-bold text-accent-800">
+            <p className="font-marker text-2xl text-spice-terracotta sm:text-3xl">
               {intro.eyebrow}
             </p>
-            <h1 className="font-display mt-4 text-4xl leading-[1.08] text-balance text-ink-950 sm:text-5xl lg:text-6xl">
+            <h1 className="font-display mt-1 text-4xl leading-[1.08] text-balance text-spice-ink sm:text-5xl lg:text-6xl">
               {intro.title}
             </h1>
             <p
               className={cn(
-                "mt-5 text-lg leading-relaxed text-pretty text-ink-800 sm:text-xl",
+                "mt-5 text-lg leading-relaxed text-pretty text-spice-ink/85 sm:text-xl",
                 !aside && "max-w-2xl",
               )}
             >

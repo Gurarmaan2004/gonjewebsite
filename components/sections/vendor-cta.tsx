@@ -49,13 +49,13 @@ export function VendorCta() {
           <Card as="ul" tone="ink" className="space-y-4">
             {vendorCta.points.map((point) => (
               <li key={point} className="flex items-start gap-3">
-                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-accent-400/15">
+                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-spice-turmeric/20">
                   <Check
-                    className="size-3.5 text-accent-400"
+                    className="size-3.5 text-spice-turmeric"
                     aria-hidden="true"
                   />
                 </span>
-                <span className="text-base text-ink-100">{point}</span>
+                <span className="text-base text-spice-cream">{point}</span>
               </li>
             ))}
           </Card>

@@ -19,32 +19,32 @@ export function DeliveryWindows({ className }: { className?: string }) {
 
   return (
     <Card
-      className={cn("w-full max-w-md border-ink-950/10 shadow-lift", className)}
+      className={cn("w-full max-w-md border-spice-ink/10 shadow-lift", className)}
     >
       <div className="flex items-center justify-between gap-4">
-        <h2 className="font-display text-lg text-ink-950">Delivery windows</h2>
+        <h2 className="font-display text-lg text-spice-ink">Delivery windows</h2>
         <Badge tone="success" dot>
           Melbourne
         </Badge>
       </div>
 
-      <dl className="mt-5 divide-y divide-ink-200">
+      <dl className="mt-5 divide-y divide-spice-ink/15">
         {rows.map((row) => (
           <div
             key={row.term}
             className="flex items-baseline justify-between gap-4 py-3"
           >
-            <dt className="text-sm text-ink-600">{row.term}</dt>
-            <dd className="text-sm font-semibold text-ink-950">{row.detail}</dd>
+            <dt className="text-sm text-spice-ink/65">{row.term}</dt>
+            <dd className="text-sm font-semibold text-spice-ink">{row.detail}</dd>
           </div>
         ))}
       </dl>
 
-      <div className="mt-5 rounded-xl border border-ink-200 bg-ink-50 p-4">
-        <p className="text-xs font-bold uppercase tracking-wide text-ink-500">
+      <div className="mt-5 rounded-xl border border-spice-ink/15 bg-spice-cream p-4">
+        <p className="text-xs font-bold uppercase tracking-wide text-spice-ink/55">
           Pay with
         </p>
-        <p className="mt-2 text-sm leading-relaxed text-ink-700">
+        <p className="mt-2 text-sm leading-relaxed text-spice-ink/75">
           {[
             ...paymentMethods.cards.slice(0, 3),
             ...paymentMethods.wallets.slice(0, 2),
