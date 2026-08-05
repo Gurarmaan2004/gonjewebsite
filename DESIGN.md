@@ -262,8 +262,10 @@ screen, never one pastel wash. Tokens are `--color-spice-*` in `globals.css`.
   the thing being moved away from. Grounds are layered instead: paper fibre + produce
   tile + an organic colour field + a torn clip-path edge between bands.
 - **Organic shapes** (`.blob-a`–`.blob-d`, `.shape-petal`) instead of rounded rectangles.
-- **Asymmetric collage** — tiles differ in colour, size and resting rotation, and the
-  step row is vertically staggered so nothing shares a baseline.
+- **Asymmetric collage** — tiles differ in colour, size and silhouette. The *step row*
+  was later straightened (2026-08-05): steps sit on one baseline and stay upright,
+  because the staggered/tilted arrangement read as busy. Character comes from the tiles,
+  not their placement. Hover still springs; it just doesn't rotate.
 - **No pills.** `StampButton` is a squared, ink-outlined block on a hard offset shadow
   (`--shadow-stamp`) that presses into it on hover.
 - **Handwritten numerals**, large and coloured — not faint grey counters.
@@ -272,12 +274,27 @@ screen, never one pastel wash. Tokens are `--color-spice-*` in `globals.css`.
 `Tilt` gives collage tiles a resting rotation and springs them toward upright on hover
 (stiffness 300, damping 14) — bounce, not a corporate fade. Entrance still uses `Reveal`.
 
-### Two traps, both already hit once
+### The SSR `initial` trap — hit three times now
+**Every Framer Motion `initial` is server-rendered as an inline style.** If the
+animation never runs — reduced motion, or JS disabled/failed — that style is what the
+user is left with, and React does *not* strip it on hydration. Each animated property
+therefore needs a CSS escape hatch in the `prefers-reduced-motion` block **and** in the
+`<noscript>` style in `app/layout.tsx`. Three have bitten so far:
+
+| Property | Attribute | Reset |
+|---|---|---|
+| `opacity` / `transform` | `data-reveal` | `opacity: 1; transform: none` |
+| `background-size` | `data-brush` | `100% 100%`, or `100% 0.46em` for `.marker-swipe` |
+| `stroke-dashoffset` | `data-scribble` | `0` |
+
+**Add a row here whenever you animate a new property.** Build and lint both pass while
+the bug is live; only rendering the page under those conditions catches it.
+
+Two shape traps as well:
+
 1. **Marker accents must be background-images, not positioned bars.** `MarkerSwipe`
    paints via `.marker-swipe` + `box-decoration-break: clone`. A positioned bar stretches
    the full width of its box the moment the phrase wraps — verified broken at 1440px.
-   The `[data-brush]` reduced-motion/no-JS net needs its own `.marker-swipe` override,
-   or it smears the swipe to full line-height.
 2. **`grocery-1.webp` is a transparent cutout, not a photograph.** Putting it in an
    outlined `PhotoSlot` frame traces an empty shape around it and reads as broken. It
    sits loose on a filled shape instead. Only true edge-to-edge photos get frames.

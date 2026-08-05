@@ -76,7 +76,7 @@ export default function RootLayout({
             JavaScript they would never animate in, leaving the page blank, so
             force them visible up front. See components/ui/reveal.tsx. */}
         <noscript>
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important}[data-brush]{background-size:100% 100%!important}[data-brush].marker-swipe{background-size:100% 0.46em!important}`}</style>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}[data-brush]{background-size:100% 100%!important}[data-brush].marker-swipe{background-size:100% 0.46em!important}[data-scribble]{stroke-dashoffset:0!important}`}</style>
         </noscript>
       </head>
       <body className="flex min-h-full flex-col">{children}</body>

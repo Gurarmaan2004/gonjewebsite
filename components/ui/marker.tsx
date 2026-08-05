@@ -82,6 +82,7 @@ export function MarkerCircle({
         transition={{ duration: 0.2, delay }}
       >
         <motion.path
+          data-scribble=""
           d="M188,14 C150,2 74,0 36,12 C4,22 6,50 44,60 C88,71 168,70 200,56 C224,45 220,24 186,15"
           fill="none"
           stroke="var(--color-spice-chili)"

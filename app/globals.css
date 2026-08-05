@@ -297,4 +297,11 @@
   [data-brush].marker-swipe {
     background-size: 100% 0.46em !important;
   }
+
+  /* Scribble paths are server-rendered fully offset (stroke-dashoffset: 1) by
+     Framer Motion's `initial`. If the draw never runs, that leaves the stroke
+     invisible — the same trap as the opacity and background-size cases above. */
+  [data-scribble] {
+    stroke-dashoffset: 0 !important;
+  }
 }

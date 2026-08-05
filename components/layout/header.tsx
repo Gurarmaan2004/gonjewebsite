@@ -194,7 +194,7 @@ export function Header() {
                 variants={item}
                 className="font-marker mt-6 text-xl text-spice-terracotta"
               >
-                Hello from West Footscray
+                Hello from the Gonje Team!
               </motion.p>
             </Container>
           </motion.div>

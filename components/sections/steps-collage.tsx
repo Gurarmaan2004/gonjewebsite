@@ -5,45 +5,38 @@ import { Tilt } from "@/components/ui/tilt";
 import { cn } from "@/lib/utils";
 
 /**
- * Spice Pantry step collage (DESIGN.md §8).
+ * Spice Pantry step row (DESIGN.md §8). Used by the home page and
+ * /how-it-works, so the two never drift apart.
  *
- * Deliberately NOT the equal-width card grid this replaces:
- *  - each step is a different spice colour, size and resting rotation
- *  - the row is vertically staggered, so nothing lines up on a baseline
+ * Steps sit on a single baseline and stay upright — the earlier staggered,
+ * tilted arrangement read as busy. Character now comes from the tiles
+ * themselves rather than from their placement:
+ *  - each step takes a different spice colour and organic blob silhouette
  *  - numerals are large and handwritten, not faint grey counters
- *  - tiles are organic blobs with an ink outline and a hard offset shadow
+ *  - tiles carry an ink outline and a hard offset shadow
  *
- * The separate `steps.tsx` grid is untouched and still serves /how-it-works,
- * so this direction stays scoped to the home page until it's approved.
+ * Hover still springs (lift + scale via <Tilt>); it just no longer rotates.
  */
 
 const looks = [
   {
     tile: "bg-spice-turmeric text-spice-ink",
     blob: "blob-a",
-    rest: -3,
-    offset: "lg:translate-y-0",
     numeral: "text-spice-chili",
   },
   {
     tile: "bg-spice-green text-spice-cream",
     blob: "blob-b",
-    rest: 4,
-    offset: "lg:translate-y-12",
     numeral: "text-spice-turmeric",
   },
   {
     tile: "bg-spice-chili text-spice-cream",
     blob: "blob-c",
-    rest: -5,
-    offset: "lg:translate-y-4",
     numeral: "text-spice-turmeric",
   },
   {
     tile: "bg-spice-terracotta text-spice-cream",
     blob: "blob-d",
-    rest: 3,
-    offset: "lg:translate-y-16",
     numeral: "text-spice-turmeric",
   },
 ] as const;
@@ -58,7 +51,7 @@ export function StepsCollage({
   return (
     <ol
       className={cn(
-        "grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-5",
+        "grid items-start gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-5",
         className
       )}
     >
@@ -66,14 +59,9 @@ export function StepsCollage({
         const look = looks[index % looks.length];
 
         return (
-          <Reveal
-            as="li"
-            key={step.title}
-            variant="scale"
-            delay={index * 0.14}
-            className={look.offset}
-          >
-            <Tilt rest={look.rest} lift={8}>
+          <Reveal as="li" key={step.title} variant="scale" delay={index * 0.14}>
+            {/* rest={0} keeps the tile upright; hover still lifts and scales. */}
+            <Tilt rest={0} lift={8}>
               <div className="flex flex-col items-start">
                 {/* Organic colour tile carrying the icon + handwritten numeral */}
                 <div
