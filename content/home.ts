@@ -3,7 +3,7 @@ import type { Category, Cta, Feature, Step } from "./types";
 
 export const hero = {
   /** Handwritten kicker above the headline — set in the marker face. */
-  kicker: "Hello from West Footscray",
+  kicker: "Hello from Melbourne!",
   eyebrow: "Melbourne · delivery & pickup",
   /** `titleHighlight` gets the hand-drawn marker swipe behind it. */
   title: "The shops that stock",
