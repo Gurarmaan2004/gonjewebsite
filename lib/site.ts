@@ -46,6 +46,8 @@ export const companyAddressLine = `${company.address.line1}, ${company.address.s
  */
 export const service = {
   foodDeliveryWindow: "30–60 minutes",
+  /** Short form for hero/proof-point spots — same verified window, lower bound led. */
+  foodDeliveryFrom: "From 30 minutes",
   foodDeliveryAverage: "under 45 minutes",
   groceryDeliveryWindow: "within 24 hours",
   hours: "7am–10pm daily",
@@ -68,6 +70,8 @@ export const externalLinks = {
   marketplace: "https://marketplace.gonje.com",
   becomeVendor:
     "https://marketplace.gonje.com/index.php?dispatch=companies.apply_for_vendor",
+  /** Verified live at marketplace.gonje.com/suppliers on 2026-09-17. */
+  suppliers: "https://marketplace.gonje.com/suppliers",
 } as const;
 
 /**

@@ -7,6 +7,8 @@ import { PhotoSlot } from "@/components/ui/photo-slot";
 import { Reveal } from "@/components/ui/reveal";
 import { StampButton } from "@/components/ui/stamp-button";
 import { Tilt } from "@/components/ui/tilt";
+import { LocationGreeting } from "./location-greeting";
+import { PostcodeFinder } from "./postcode-finder";
 import boxSrc from "@/public/grocery-1.webp";
 
 /**
@@ -49,12 +51,12 @@ export function Hero() {
         <div>
           <Reveal variant="left">
             <p className="font-marker text-2xl text-spice-terracotta sm:text-3xl">
-              {hero.kicker}
+              <LocationGreeting fallback={hero.kickerFallback} />
             </p>
           </Reveal>
 
           <Reveal delay={0.12} variant="left">
-            <h1 className="font-spice mt-2 text-[2.5rem] leading-[1.06] font-bold text-balance text-spice-ink sm:text-[3.4rem] lg:text-[3.7rem]">
+            <h1 className="font-spice mt-2 text-[2.75rem] leading-[1.04] font-bold text-balance text-spice-ink sm:text-[4rem] lg:text-[4.5rem]">
               {hero.title}{" "}
               <MarkerSwipe color="turmeric" delay={0.65}>
                 {hero.titleHighlight}
@@ -68,8 +70,12 @@ export function Hero() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.36} variant="left">
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <Reveal delay={0.32} variant="left">
+            <PostcodeFinder className="mt-8 max-w-lg" />
+          </Reveal>
+
+          <Reveal delay={0.4} variant="left">
+            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
               <StampButton
                 href={hero.primaryCta.href}
                 external={hero.primaryCta.external}

@@ -2,25 +2,30 @@ import { externalLinks, service } from "@/lib/site";
 import type { Category, Cta, Feature, Step } from "./types";
 
 export const hero = {
-  /** Handwritten kicker above the headline — set in the marker face. */
-  kicker: "Hello from Melbourne!",
-  eyebrow: "Melbourne · delivery & pickup",
+  /**
+   * Handwritten kicker above the headline. Rendered by <LocationGreeting>,
+   * which swaps this in for "Hello from {city}!" once IP-based geolocation
+   * resolves client-side — this is the fallback shown until then (or if it
+   * fails/is blocked).
+   */
+  kickerFallback: "Discover the food, groceries and flavours that feel like home.",
   /** `titleHighlight` gets the hand-drawn marker swipe behind it. */
-  title: "The shops that stock",
-  titleHighlight: "what you actually cook with",
+  title: "The flavours of home,",
+  titleHighlight: "delivered across Melbourne",
   /* Every category named here is verified on the marketplace — see lib/site.ts.
-     Warm phrasing is fine; the nouns are not negotiable. */
-  lead: `Halal and kosher shelves, organic growers, fresh produce and kitchens cooking to order — all from independent shops around Melbourne. Food lands in ${service.foodDeliveryWindow}. Groceries ${service.groceryDeliveryWindow}.`,
+     "Multicultural" is the differentiator CLAUDE.md §1 calls out — this is not
+     a generic Melbourne grocery app, so it leads the copy rather than trailing it. */
+  lead: `Halal and kosher shelves, organic growers and specialty kitchens cooking the dishes that taste like home — from independent vendors serving Melbourne's multicultural communities. Food arrives ${service.foodDeliveryFrom.toLowerCase()}, groceries ${service.groceryDeliveryWindow}.`,
   primaryCta: {
-    label: "Start an order",
+    label: "Find food near me",
     href: externalLinks.marketplace,
     external: true,
   } satisfies Cta,
-  secondaryCta: { label: "Sell with us", href: "/vendors" } satisfies Cta,
+  secondaryCta: { label: "Sell with Gonje", href: "/vendors" } satisfies Cta,
   /** Short factual proof points sat under the CTAs. */
   proofPoints: [
     `${service.hours}`,
-    `Food in ${service.foodDeliveryWindow}`,
+    `${service.foodDeliveryFrom} for food`,
     "Delivery or pickup",
   ],
 } as const;
@@ -32,7 +37,7 @@ export const howItWorks = {
   lead: "The ordering itself happens over on the marketplace. Here's the whole of it, before you go.",
   steps: [
     {
-      title: "Tell us your street",
+      title: "Enter your postcode",
       description:
         "We'll show you the shops that actually deliver to your door, plus the pickup centres near you.",
       icon: "map-pin",
@@ -61,13 +66,13 @@ export const howItWorks = {
 
 export const categories = {
   eyebrow: "What's on Gonje",
-  title: "Groceries, meals and the specific things",
-  lead: "A snapshot of what our vendors stock. The full range lives on the marketplace.",
+  title: "Built for Melbourne's multicultural kitchens",
+  lead: "Halal, kosher and home-country staples sit alongside the everyday shop — not an afterthought. The full range lives on the marketplace.",
   items: [
     {
-      name: "Everyday groceries",
-      description: "The weekly shop, from local grocers rather than a warehouse.",
-      examples: ["Fresh fruit & veg", "Pantry staples", "Beverages", "Baby essentials"],
+      name: "Multicultural & specialty",
+      description: "The staples that are hard to find in one place, from vendors who know the difference.",
+      examples: ["Halal", "Kosher", "Organic produce", "Gluten free"],
     },
     {
       name: "Ready to eat",
@@ -75,9 +80,9 @@ export const categories = {
       examples: ["Restaurant meals", "Sushi", "Pasta", "Desserts"],
     },
     {
-      name: "Specialty & dietary",
-      description: "The items that are hard to find in one place.",
-      examples: ["Halal", "Kosher", "Organic produce", "Gluten free"],
+      name: "Everyday groceries",
+      description: "The weekly shop, from local grocers rather than a warehouse.",
+      examples: ["Fresh fruit & veg", "Pantry staples", "Beverages", "Baby essentials"],
     },
   ] satisfies readonly Category[],
   cta: {
@@ -93,15 +98,15 @@ export const trust = {
   lead: "We're a Melbourne company working with the shops in your suburb — not a national app passing through.",
   features: [
     {
-      title: "Fast where it matters",
-      description: `Food averages ${service.foodDeliveryAverage}. Groceries arrive ${service.groceryDeliveryWindow}. Prefer to collect? Pick up at a designated centre.`,
-      icon: "clock",
+      title: "Rooted in community",
+      description:
+        "We back the cultural events and multicultural food businesses that make Melbourne worth eating in — this isn't a national app passing through.",
+      icon: "users",
     },
     {
-      title: "Payments handled properly",
-      description:
-        "Checkout runs on PayPal and Stripe, with cards, Apple Pay, Google Pay and buy-now-pay-later supported.",
-      icon: "shield-check",
+      title: "Fast where it matters",
+      description: `${service.foodDeliveryFrom} for food, averaging ${service.foodDeliveryAverage}. Groceries arrive ${service.groceryDeliveryWindow}. Prefer to collect? Pick up at a designated centre.`,
+      icon: "clock",
     },
     {
       title: "Independent vendors",
@@ -110,10 +115,10 @@ export const trust = {
       icon: "heart-handshake",
     },
     {
-      title: "Rooted in community",
+      title: "Payments handled properly",
       description:
-        "We back the cultural events and multicultural food businesses that make Melbourne worth eating in.",
-      icon: "users",
+        "Checkout runs on PayPal and Stripe, with cards, Apple Pay, Google Pay and buy-now-pay-later supported.",
+      icon: "shield-check",
     },
   ] satisfies readonly Feature[],
 } as const;
@@ -133,4 +138,17 @@ export const vendorCta = {
     href: externalLinks.becomeVendor,
     external: true,
   } satisfies Cta,
+} as const;
+
+/**
+ * Influencer storefronts — an upcoming Gonje feature, not yet live on the
+ * marketplace (checked 2026-09-17: no influencer sign-up flow or page
+ * exists there yet). Framed as "coming soon" rather than a working CTA to
+ * a plan or price that hasn't been published.
+ */
+export const influencerCta = {
+  eyebrow: "Coming soon",
+  title: "Sell through your own storefront",
+  lead: "Influencers will be able to curate and on-sell Gonje vendor products through a storefront of their own — reaching their audience without running fulfilment themselves.",
+  cta: { label: "Register your interest", href: "/influencers" } satisfies Cta,
 } as const;

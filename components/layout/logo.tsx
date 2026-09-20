@@ -5,12 +5,12 @@ import { site } from "@/lib/site";
 import logoSrc from "@/public/logo.webp";
 
 /**
- * The supplied Gonje wordmark. The asset already contains the word "Gonje",
- * so no text is set alongside it — the accessible name comes from the link's
- * aria-label and the image is marked decorative.
- *
- * Note: logo.webp is only 128×70, so it is rendered small to stay sharp on
- * retina. A larger raster or an SVG wordmark would let it scale up.
+ * The Gonje wordmark, cropped from the same asset marketplace.gonje.com uses
+ * (marketplace.gonje.com/images/logos/8/gonje-text-2_2vlm-mu.png, with its
+ * "Marketplace" subtitle trimmed off) so the two sites share one visual
+ * identity. The asset already contains the word "Gonje", so no text is set
+ * alongside it — the accessible name comes from the link's aria-label and the
+ * image is marked decorative.
  */
 export function Logo({
   className,

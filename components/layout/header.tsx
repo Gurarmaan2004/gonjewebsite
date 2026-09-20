@@ -71,21 +71,39 @@ export function Header() {
           <Logo priority />
 
           <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
-            {primaryNav.map((navItem) => (
-              <Link
-                key={navItem.href}
-                href={navItem.href}
-                aria-current={isActive(navItem.href) ? "page" : undefined}
-                className={cn(
-                  "font-display rounded-lg px-3 py-2 text-base font-bold transition-colors",
-                  isActive(navItem.href)
-                    ? "marker-swipe marker-turmeric text-spice-ink"
-                    : "text-spice-ink/70 hover:text-spice-ink"
-                )}
-              >
-                {navItem.label}
-              </Link>
-            ))}
+            {primaryNav.map((navItem) => {
+              const linkClassName = cn(
+                "font-display rounded-lg px-3 py-2 text-base font-bold transition-colors",
+                isActive(navItem.href)
+                  ? "marker-swipe marker-turmeric text-spice-ink"
+                  : "text-spice-ink/70 hover:text-spice-ink"
+              );
+
+              if (navItem.external) {
+                return (
+                  <a
+                    key={navItem.href}
+                    href={navItem.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClassName}
+                  >
+                    {navItem.label}
+                  </a>
+                );
+              }
+
+              return (
+                <Link
+                  key={navItem.href}
+                  href={navItem.href}
+                  aria-current={isActive(navItem.href) ? "page" : undefined}
+                  className={linkClassName}
+                >
+                  {navItem.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -158,23 +176,39 @@ export function Header() {
 
             <Container className="flex flex-1 flex-col justify-center gap-2 pb-24">
               <nav aria-label="Primary" className="flex flex-col gap-2">
-                {primaryNav.map((navItem) => (
-                  <motion.div key={navItem.href} variants={item}>
-                    <Link
-                      href={navItem.href}
-                      onClick={() => setOpen(false)}
-                      aria-current={isActive(navItem.href) ? "page" : undefined}
-                      className={cn(
-                        "font-display block py-3 text-4xl font-bold transition-colors",
-                        isActive(navItem.href)
-                          ? "marker-swipe marker-turmeric text-spice-ink"
-                          : "text-spice-ink/75 hover:text-spice-ink"
+                {primaryNav.map((navItem) => {
+                  const linkClassName = cn(
+                    "font-display block py-3 text-4xl font-bold transition-colors",
+                    isActive(navItem.href)
+                      ? "marker-swipe marker-turmeric text-spice-ink"
+                      : "text-spice-ink/75 hover:text-spice-ink"
+                  );
+
+                  return (
+                    <motion.div key={navItem.href} variants={item}>
+                      {navItem.external ? (
+                        <a
+                          href={navItem.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setOpen(false)}
+                          className={linkClassName}
+                        >
+                          {navItem.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={navItem.href}
+                          onClick={() => setOpen(false)}
+                          aria-current={isActive(navItem.href) ? "page" : undefined}
+                          className={linkClassName}
+                        >
+                          {navItem.label}
+                        </Link>
                       )}
-                    >
-                      {navItem.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                    </motion.div>
+                  );
+                })}
               </nav>
 
               <motion.div variants={item} className="mt-8">

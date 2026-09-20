@@ -5,11 +5,13 @@ import type { Cta } from "./types";
 export const primaryNav: readonly Cta[] = [
   { label: "How it works", href: "/how-it-works" },
   { label: "For vendors", href: "/vendors" },
+  { label: "Influencers", href: "/influencers" },
+  { label: "Suppliers", href: externalLinks.suppliers, external: true },
   { label: "About", href: "/about" },
 ];
 
 export const headerCta: Cta = {
-  label: "Start an order",
+  label: "Find food near me",
   href: externalLinks.marketplace,
   external: true,
 };
@@ -35,6 +37,8 @@ export const footerNav: readonly {
     links: [
       { label: "Become a vendor", href: "/vendors" },
       { label: "Vendor sign-up", href: externalLinks.becomeVendor, external: true },
+      { label: "Suppliers", href: externalLinks.suppliers, external: true },
+      { label: "Influencers", href: "/influencers" },
     ],
   },
   {

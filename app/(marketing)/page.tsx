@@ -4,6 +4,7 @@ import { Categories } from "@/components/sections/categories";
 import { Trust } from "@/components/sections/trust";
 import { Testimonials } from "@/components/sections/testimonials";
 import { VendorCta } from "@/components/sections/vendor-cta";
+import { InfluencerCta } from "@/components/sections/influencer-cta";
 import { Faq } from "@/components/sections/faq";
 
 export default function HomePage() {
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Trust />
       <Testimonials />
       <VendorCta />
+      <InfluencerCta />
       <Faq />
     </>
   );

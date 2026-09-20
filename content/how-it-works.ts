@@ -9,9 +9,9 @@ export const intro: PageIntro = {
 
 export const steps: readonly Step[] = [
   {
-    title: "Tell us where you are",
+    title: "Enter your postcode",
     description:
-      "Enter a delivery address and we'll filter the marketplace down to vendors that actually reach you — plus any pickup centres nearby.",
+      "We'll filter the marketplace down to vendors that actually reach you — plus any pickup centres nearby.",
     icon: "map-pin",
   },
   {
