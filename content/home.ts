@@ -1,4 +1,5 @@
 import { externalLinks, service } from "@/lib/site";
+import { missionStatement } from "./mission";
 import type { Category, Cta, Feature, Step } from "./types";
 
 export const hero = {
@@ -16,13 +17,8 @@ export const hero = {
      "Multicultural" is the differentiator CLAUDE.md §1 calls out — this is not
      a generic Melbourne grocery app, so it leads the copy rather than trailing it. */
   lead: `Halal and kosher shelves, organic growers and specialty kitchens cooking the dishes that taste like home — from independent vendors serving Melbourne's multicultural communities. Food arrives ${service.foodDeliveryFrom.toLowerCase()}, groceries ${service.groceryDeliveryWindow}.`,
-  primaryCta: {
-    label: "Find food near me",
-    href: externalLinks.marketplace,
-    external: true,
-  } satisfies Cta,
-  secondaryCta: { label: "Sell with Gonje", href: "/vendors" } satisfies Cta,
-  /** Short factual proof points sat under the CTAs. */
+  mission: missionStatement,
+  /** Short factual proof points sat under the lead. CTAs live in the header only. */
   proofPoints: [
     `${service.hours}`,
     `${service.foodDeliveryFrom} for food`,

@@ -1,5 +1,36 @@
 import { company, companyAddressLine, externalLinks, service } from "@/lib/site";
+import { missionStatement } from "./mission";
 import type { Cta, Feature, PageIntro } from "./types";
+
+export const mission = missionStatement;
+
+/**
+ * Placeholder team entries — names, titles and bios are all made up for now
+ * (review feedback: "random for now, I will input this data later"). Photos
+ * are intentionally left blank; see <AvatarSlot>. Replace every field before
+ * this goes live.
+ */
+export const team: readonly {
+  name: string;
+  title: string;
+  bio: string;
+}[] = [
+  {
+    name: "Amara Chukwu",
+    title: "Co-Founder & CEO",
+    bio: "Placeholder bio — Amara's background and focus at Gonje to be added.",
+  },
+  {
+    name: "David Okafor",
+    title: "Co-Founder & COO",
+    bio: "Placeholder bio — David's background and focus at Gonje to be added.",
+  },
+  {
+    name: "Priya Nair",
+    title: "Head of Vendor Partnerships",
+    bio: "Placeholder bio — Priya's background and focus at Gonje to be added.",
+  },
+];
 
 export const intro: PageIntro = {
   eyebrow: "About Gonje",
@@ -14,7 +45,7 @@ export const story = {
   paragraphs: [
     "Gonje runs a marketplace where independent Australian businesses sell directly to customers nearby. Restaurants send meals out hot, grocers fill weekly shops, and specialty suppliers stock the things that are hard to find in one place — halal, kosher, organic, gluten free, baby essentials.",
     `Customers order for delivery — ${service.foodDeliveryWindow} for most food, ${service.groceryDeliveryWindow} for groceries — or collect from a designated pickup centre. Vendors get a storefront, fulfilment, promotion and payouts, on a plan that starts free.`,
-    "The company is based in West Footscray in Melbourne's inner west, and much of what we carry reflects the communities around us. We support multicultural food businesses and back local cultural events, including African music and cultural festivals.",
+    "Gonje operates nationwide as both a SaaS company and a frontier for ethnic goods, thus much of what we carry reflects the communities around us. We support multicultural food businesses and back local cultural events, including African music and cultural festivals.",
   ],
 } as const;
 

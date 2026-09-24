@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { closingCta, details, intro, story, values } from "@/content/about";
+import { closingCta, details, intro, mission, story, team, values } from "@/content/about";
 import { CtaBand } from "@/components/sections/cta-band";
 import { PageHero } from "@/components/sections/page-hero";
+import { AvatarSlot } from "@/components/ui/avatar-slot";
 import { Card } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { PhotoSlot } from "@/components/ui/photo-slot";
@@ -25,6 +26,17 @@ export default function AboutPage() {
   return (
     <>
       <PageHero intro={intro} highlight="local shops" />
+
+      <Section size="sm" tone="brand" grain>
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="font-marker text-2xl text-spice-terracotta sm:text-3xl">
+            Our mission
+          </p>
+          <p className="font-display mt-2 text-2xl leading-snug text-balance text-spice-ink sm:text-3xl">
+            {mission}
+          </p>
+        </Reveal>
+      </Section>
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
@@ -105,6 +117,32 @@ export default function AboutPage() {
       </Section>
 
       <Section>
+        <SectionHeading
+          eyebrow="Who's behind it"
+          title="The people running Gonje"
+          lead="Placeholder team profiles — photos and bios below are examples until the real ones are supplied."
+        />
+        <ul className="mt-12 grid gap-8 sm:grid-cols-3">
+          {team.map((person, index) => (
+            <Reveal as="li" key={person.name} delay={index * 0.12}>
+              <Card className="flex h-full flex-col items-center text-center">
+                <AvatarSlot name={person.name} />
+                <h3 className="font-display mt-4 text-xl text-spice-ink">
+                  {person.name}
+                </h3>
+                <p className="text-sm font-semibold text-spice-terracotta">
+                  {person.title}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-spice-ink/70">
+                  {person.bio}
+                </p>
+              </Card>
+            </Reveal>
+          ))}
+        </ul>
+      </Section>
+
+      <Section tone="muted">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
             <SectionHeading eyebrow={details.eyebrow} title={details.title} />

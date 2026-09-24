@@ -1,11 +1,9 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { hero } from "@/content/home";
 import { Container } from "@/components/ui/container";
 import { MarkerSwipe } from "@/components/ui/marker";
 import { PhotoSlot } from "@/components/ui/photo-slot";
 import { Reveal } from "@/components/ui/reveal";
-import { StampButton } from "@/components/ui/stamp-button";
 import { Tilt } from "@/components/ui/tilt";
 import { LocationGreeting } from "./location-greeting";
 import { PostcodeFinder } from "./postcode-finder";
@@ -74,25 +72,14 @@ export function Hero() {
             <PostcodeFinder className="mt-8 max-w-lg" />
           </Reveal>
 
+          {/* Mission statement — set apart from the lead paragraph rather than
+              folded into it, since it speaks about Gonje rather than to the
+              shopper. CTAs are deliberately not repeated here; the header
+              carries the one marketplace hand-off action for this page. */}
           <Reveal delay={0.4} variant="left">
-            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <StampButton
-                href={hero.primaryCta.href}
-                external={hero.primaryCta.external}
-                variant="chili"
-                size="lg"
-              >
-                {hero.primaryCta.label}
-                <ArrowUpRight className="size-5" aria-hidden="true" />
-              </StampButton>
-              <StampButton
-                href={hero.secondaryCta.href}
-                variant="cream"
-                size="lg"
-              >
-                {hero.secondaryCta.label}
-              </StampButton>
-            </div>
+            <p className="mt-6 max-w-xl border-l-4 border-spice-turmeric pl-4 text-base font-medium text-pretty text-spice-ink/70 italic">
+              {hero.mission}
+            </p>
           </Reveal>
 
           {/* Proof points as a handwritten strip, not a row of corporate ticks. */}

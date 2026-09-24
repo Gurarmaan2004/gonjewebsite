@@ -25,8 +25,8 @@ export const company = {
   phone: "03 9969 2891",
   /** Tel: href form — digits only, no spaces. */
   phoneHref: "+61399692891",
-  email: "operations@gonje.com",
-  supportEmail: "operations@gonje.com.au",
+  email: "support@gonje.com",
+  supportEmail: "operations@gonje.com",
   address: {
     line1: "Unit 12, 442 Geelong Road",
     suburb: "West Footscray",

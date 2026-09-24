@@ -1,12 +1,20 @@
 import { externalLinks } from "@/lib/site";
-import type { Cta } from "./types";
+import type { Cta, NavItem } from "./types";
 
 /** Primary navigation. Legal routes are deliberately footer-only. */
-export const primaryNav: readonly Cta[] = [
+export const primaryNav: readonly NavItem[] = [
   { label: "How it works", href: "/how-it-works" },
   { label: "For vendors", href: "/vendors" },
+  {
+    label: "Services",
+    href: "/services",
+    children: [
+      { label: "Energy as a Service", href: "/services/energy" },
+      { label: "Data as a Service", href: "/services/data" },
+    ],
+  },
   { label: "Influencers", href: "/influencers" },
-  { label: "Suppliers", href: externalLinks.suppliers, external: true },
+  { label: "Suppliers", href: "/suppliers" },
   { label: "About", href: "/about" },
 ];
 
@@ -37,8 +45,15 @@ export const footerNav: readonly {
     links: [
       { label: "Become a vendor", href: "/vendors" },
       { label: "Vendor sign-up", href: externalLinks.becomeVendor, external: true },
-      { label: "Suppliers", href: externalLinks.suppliers, external: true },
+      { label: "Suppliers", href: "/suppliers" },
       { label: "Influencers", href: "/influencers" },
+    ],
+  },
+  {
+    heading: "Services",
+    links: [
+      { label: "Energy as a Service", href: "/services/energy" },
+      { label: "Data as a Service", href: "/services/data" },
     ],
   },
   {

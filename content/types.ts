@@ -23,13 +23,23 @@ export type IconName =
   | "line-chart"
   | "wallet"
   | "headphones"
-  | "megaphone";
+  | "megaphone"
+  | "zap"
+  | "database"
+  | "car"
+  | "building"
+  | "mail";
 
 export type Cta = {
   label: string;
   href: string;
   /** Set for links that leave gonje.com (marketplace, vendor signup). */
   external?: boolean;
+};
+
+/** A primary-nav entry that opens a dropdown of sub-pages instead of linking directly. */
+export type NavItem = Cta & {
+  children?: readonly Cta[];
 };
 
 export type Step = {

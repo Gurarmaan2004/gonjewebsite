@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/hero";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { Categories } from "@/components/sections/categories";
+import { Savings } from "@/components/sections/savings";
 import { Trust } from "@/components/sections/trust";
 import { Testimonials } from "@/components/sections/testimonials";
 import { VendorCta } from "@/components/sections/vendor-cta";
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Hero />
       <HowItWorks />
       <Categories />
+      <Savings />
       <Trust />
       <Testimonials />
       <VendorCta />

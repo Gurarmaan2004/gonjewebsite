@@ -1,10 +1,14 @@
 import {
+  Building2,
+  Car,
   Clock,
   CreditCard,
+  Database,
   HeartHandshake,
   Headphones,
   Leaf,
   LineChart,
+  Mail,
   MapPin,
   Megaphone,
   Package,
@@ -15,6 +19,7 @@ import {
   Truck,
   Users,
   Wallet,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 import type { IconName } from "@/content/types";
@@ -40,6 +45,11 @@ const icons: Record<IconName, LucideIcon> = {
   wallet: Wallet,
   headphones: Headphones,
   megaphone: Megaphone,
+  zap: Zap,
+  database: Database,
+  car: Car,
+  building: Building2,
+  mail: Mail,
 };
 
 export function Icon({

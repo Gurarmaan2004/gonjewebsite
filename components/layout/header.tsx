@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
+import { NavDropdown } from "./nav-dropdown";
 
 const EASE_EXPO = [0.16, 1, 0.3, 1] as const;
 
@@ -72,6 +73,12 @@ export function Header() {
 
           <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
             {primaryNav.map((navItem) => {
+              if (navItem.children?.length) {
+                return (
+                  <NavDropdown key={navItem.href} item={navItem} isActive={isActive} />
+                );
+              }
+
               const linkClassName = cn(
                 "font-display rounded-lg px-3 py-2 text-base font-bold transition-colors",
                 isActive(navItem.href)
@@ -183,6 +190,39 @@ export function Header() {
                       ? "marker-swipe marker-turmeric text-spice-ink"
                       : "text-spice-ink/75 hover:text-spice-ink"
                   );
+
+                  if (navItem.children?.length) {
+                    return (
+                      <motion.div key={navItem.href} variants={item}>
+                        <Link
+                          href={navItem.href}
+                          onClick={() => setOpen(false)}
+                          aria-current={isActive(navItem.href) ? "page" : undefined}
+                          className={linkClassName}
+                        >
+                          {navItem.label}
+                        </Link>
+                        <div className="ml-4 flex flex-col gap-1 border-l-2 border-spice-ink/15 pl-4">
+                          {navItem.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={() => setOpen(false)}
+                              aria-current={isActive(child.href) ? "page" : undefined}
+                              className={cn(
+                                "font-display block py-1.5 text-xl font-bold transition-colors",
+                                isActive(child.href)
+                                  ? "text-spice-terracotta"
+                                  : "text-spice-ink/60 hover:text-spice-ink"
+                              )}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    );
+                  }
 
                   return (
                     <motion.div key={navItem.href} variants={item}>
