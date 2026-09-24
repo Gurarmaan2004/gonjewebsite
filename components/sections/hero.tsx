@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { hero } from "@/content/home";
 import { Container } from "@/components/ui/container";
@@ -5,8 +7,8 @@ import { MarkerSwipe } from "@/components/ui/marker";
 import { PhotoSlot } from "@/components/ui/photo-slot";
 import { Reveal } from "@/components/ui/reveal";
 import { Tilt } from "@/components/ui/tilt";
-import { LocationGreeting } from "./location-greeting";
 import { PostcodeFinder } from "./postcode-finder";
+import { useVisitorLocation } from "./use-visitor-location";
 import boxSrc from "@/public/grocery-1.webp";
 
 /**
@@ -24,6 +26,10 @@ import boxSrc from "@/public/grocery-1.webp";
  * no longer used here — it is the exact illustration style being moved away from.
  */
 export function Hero() {
+  const location = useVisitorLocation();
+  const kicker = location ? `Hello from ${location.city}!` : hero.kickerFallback;
+  const city = location?.nearestCity ?? hero.titleCityFallback;
+
   return (
     <section className="relative isolate overflow-hidden bg-spice-cream">
       {/* Layered ground: paper fibre, a turmeric field on an organic curve, a
@@ -49,7 +55,7 @@ export function Hero() {
         <div>
           <Reveal variant="left">
             <p className="font-marker text-2xl text-spice-terracotta sm:text-3xl">
-              <LocationGreeting fallback={hero.kickerFallback} />
+              {kicker}
             </p>
           </Reveal>
 
@@ -57,7 +63,7 @@ export function Hero() {
             <h1 className="font-spice mt-2 text-[2.75rem] leading-[1.04] font-bold text-balance text-spice-ink sm:text-[4rem] lg:text-[4.5rem]">
               {hero.title}{" "}
               <MarkerSwipe color="turmeric" delay={0.65}>
-                {hero.titleHighlight}
+                {hero.titleHighlightPrefix} {city}
               </MarkerSwipe>
             </h1>
           </Reveal>

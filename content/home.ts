@@ -4,15 +4,21 @@ import type { Category, Cta, Feature, Step } from "./types";
 
 export const hero = {
   /**
-   * Handwritten kicker above the headline. Rendered by <LocationGreeting>,
-   * which swaps this in for "Hello from {city}!" once IP-based geolocation
-   * resolves client-side — this is the fallback shown until then (or if it
-   * fails/is blocked).
+   * Handwritten kicker above the headline. Swapped for "Hello from {city}!"
+   * once IP-based geolocation resolves client-side (see useVisitorLocation)
+   * — this is the fallback shown until then (or if it fails/is blocked).
    */
   kickerFallback: "Discover the food, groceries and flavours that feel like home.",
   /** `titleHighlight` gets the hand-drawn marker swipe behind it. */
   title: "The flavours of home,",
-  titleHighlight: "delivered across Melbourne",
+  /**
+   * `titleHighlightPrefix` + the visitor's nearest major city (falling back
+   * to `titleCityFallback`) makes up titleHighlight — see useVisitorLocation.
+   * Per review decision, this always shows the detected city, even outside
+   * Melbourne where Gonje doesn't deliver yet.
+   */
+  titleHighlightPrefix: "delivered across",
+  titleCityFallback: "Melbourne",
   /* Every category named here is verified on the marketplace — see lib/site.ts.
      "Multicultural" is the differentiator CLAUDE.md §1 calls out — this is not
      a generic Melbourne grocery app, so it leads the copy rather than trailing it. */

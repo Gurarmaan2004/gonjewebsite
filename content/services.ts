@@ -41,10 +41,25 @@ export const energy = {
   intro: {
     eyebrow: "Energy as a Service",
     title: "EaaS, in partnership with ESQ Energy",
-    lead: "Powered by Origin and Optus, Energy as a Service brings energy solutions to the local food businesses that keep Melbourne fed — as a benefit of joining Gonje, and a reason to.",
+    lead: "Powered by Origin and Optus, ESQ Energy's EaaS deal brings EV charging stations to Gonje vendor and supplier sites — as a benefit of joining Gonje, and a reason to.",
   } satisfies PageIntro,
   /** Named per review feedback. Logos intentionally left blank — see LogoSlot. */
   partners: ["ESQ Energy", "Origin", "Optus"],
+  /** From eaas.txt (review, 2026-09-25). Pricing and the EV lease/hire option are TBC — shown as such rather than invented. */
+  evCharging: {
+    eyebrow: "EV charging",
+    title: "EV charging stations for your storefront",
+    lead: "A payable EV charging station for your customers and the public — DC and AC chargers, with solar and battery systems available, customised to your store and branding, with 24-hour public availability.",
+    points: [
+      "Additional income from your building space",
+      "Branding to your storefront",
+      "Increased customer store visits",
+      "Low or no maintenance cost",
+      "Finance options available",
+    ],
+    note: "EV cars available for hire or lease for your business, bundled as a subscription — to be confirmed.",
+    pricing: "Pricing structure: to be confirmed.",
+  },
   audiences: {
     eyebrow: "Who it's for",
     title: "Built for businesses that run on energy-heavy premises",
@@ -88,9 +103,16 @@ export const data = {
   intro: {
     eyebrow: "Data as a Service",
     title: "DaaS, via the Origin 360 Business Fleet",
-    lead: "Delivery (Data) as a Service gives Gonje vendors and suppliers access to the Origin 360 Business Fleet — for employee vehicles and for the logistics side of running a delivery business.",
+    lead: "Origin Energy has committed the Origin 360 Business Fleet of electric vehicles to Gonje. Delivery (Data) as a Service gives Gonje vendors and suppliers access to it — for employee vehicles and for the logistics side of running a delivery business.",
   } satisfies PageIntro,
   fleetPartner: "Origin 360 Business Fleet",
+  /** From daas.txt (review, 2026-09-25) — the driver app doesn't exist yet, shown as in development rather than a working feature. */
+  driverApp: {
+    eyebrow: "Driver app",
+    title: "A driver app, built around the fleet",
+    lead: "Gonje is building a driver app so Gonje employees can use the Origin 360 Business Fleet's electric vehicles to deliver food or take part in ride-sharing.",
+    status: "In development",
+  },
   plans: [
     {
       name: "Gonje Ride to Own",

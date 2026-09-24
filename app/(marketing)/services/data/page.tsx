@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Smartphone } from "lucide-react";
 import { data } from "@/content/services";
 import { ContactForm } from "@/components/sections/contact-form";
 import { PageHero } from "@/components/sections/page-hero";
+import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { LogoSlot } from "@/components/ui/logo-slot";
@@ -51,6 +53,31 @@ export default function DataServicePage() {
       </Section>
 
       <Section>
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <Reveal variant="scale">
+            <div className="mx-auto grid size-40 place-items-center border-4 border-spice-ink bg-spice-turmeric shadow-stamp blob-a">
+              <Smartphone className="size-16 text-spice-ink" strokeWidth={1.5} aria-hidden="true" />
+            </div>
+          </Reveal>
+
+          <div>
+            <div className="flex items-center gap-3">
+              <p className="font-marker text-2xl text-spice-terracotta sm:text-3xl">
+                {data.driverApp.eyebrow}
+              </p>
+              <Badge tone="warning">{data.driverApp.status}</Badge>
+            </div>
+            <h2 className="font-display mt-1 text-3xl text-balance text-spice-ink sm:text-4xl">
+              {data.driverApp.title}
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-pretty text-spice-ink/75">
+              {data.driverApp.lead}
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section tone="muted">
         <ul className="grid gap-x-8 gap-y-10 sm:grid-cols-3">
           {data.benefits.map((benefit, index) => (
             <Reveal as="li" key={benefit.title} delay={index * 0.12}>
@@ -74,7 +101,7 @@ export default function DataServicePage() {
         </ul>
       </Section>
 
-      <Section tone="muted">
+      <Section>
         <div className="mx-auto max-w-xl">
           <SectionHeading
             eyebrow="Get in touch"

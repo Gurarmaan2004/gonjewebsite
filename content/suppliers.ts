@@ -13,10 +13,9 @@ export const intro: PageIntro = {
  * not verified copy from the suppliers themselves. Replace with their
  * approved wording when it's supplied.
  *
- * Logos live in /public/company_logos/suppliers. Nana Africa's logo hasn't
- * been supplied yet, so it renders via <LogoSlot> with no `src`. Every logo
- * links to marketplace.gonje.com — per review feedback, not a per-vendor
- * storefront URL, until those are supplied.
+ * Logos live in /public/company_logos/suppliers. Every logo links to
+ * marketplace.gonje.com — per review feedback, not a per-vendor storefront
+ * URL, until those are supplied.
  */
 export const suppliers: readonly {
   name: string;
@@ -36,12 +35,6 @@ export const suppliers: readonly {
     description:
       "A long-running multicultural snack and provisions brand, stocking the branded pantry staples familiar to Melbourne's African and Caribbean communities.",
     logo: "/company_logos/suppliers/Felicios.webp",
-    href: externalLinks.marketplace,
-  },
-  {
-    name: "Nana Africa",
-    description:
-      "African grocery and pantry supplier, stocking the everyday ingredients used in West and East African home cooking.",
     href: externalLinks.marketplace,
   },
   {
