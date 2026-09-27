@@ -29,8 +29,8 @@ export default function EnergyServicePage() {
         </p>
         <ul className="mt-4 grid gap-4 sm:grid-cols-3">
           {energy.partners.map((partner) => (
-            <li key={partner}>
-              <LogoSlot name={partner} />
+            <li key={partner.name}>
+              <LogoSlot src={partner.logo} name={partner.name} />
             </li>
           ))}
         </ul>

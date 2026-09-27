@@ -28,7 +28,7 @@ export default function DataServicePage() {
           Fleet partner
         </p>
         <div className="mt-4 max-w-xs">
-          <LogoSlot name={data.fleetPartner} />
+          <LogoSlot src={data.fleetPartner.logo} name={data.fleetPartner.name} />
         </div>
       </Section>
 

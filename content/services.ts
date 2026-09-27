@@ -3,10 +3,10 @@ import type { Feature, PageIntro } from "./types";
 /**
  * Energy as a Service (EaaS) and Data as a Service (DaaS) — two partner-led
  * offers for Gonje vendors/suppliers, not the marketplace itself. Copy here
- * is based on what was supplied in review; partner names (ESQ Energy, Origin,
- * Optus) are named but their logos are deliberately left blank pending real
- * assets, and specifics like pricing/eligibility are marked for follow-up
- * rather than invented.
+ * is based on what was supplied in review; specifics like pricing/eligibility
+ * are marked for follow-up rather than invented.
+ *
+ * Partner logos live in /public/company_logos/eaas and /company_logos/daas.
  */
 
 export const overview: PageIntro = {
@@ -43,8 +43,11 @@ export const energy = {
     title: "EaaS, in partnership with ESQ Energy",
     lead: "Powered by Origin and Optus, ESQ Energy's EaaS deal brings EV charging stations to Gonje vendor and supplier sites — as a benefit of joining Gonje, and a reason to.",
   } satisfies PageIntro,
-  /** Named per review feedback. Logos intentionally left blank — see LogoSlot. */
-  partners: ["ESQ Energy", "Origin", "Optus"],
+  partners: [
+    { name: "ESQ Energy", logo: "/company_logos/eaas/esq.png" },
+    { name: "Origin", logo: "/company_logos/eaas/origin.webp" },
+    { name: "Optus", logo: "/company_logos/eaas/optus.png" },
+  ],
   /** From eaas.txt (review, 2026-09-25). Pricing and the EV lease/hire option are TBC — shown as such rather than invented. */
   evCharging: {
     eyebrow: "EV charging",
@@ -105,7 +108,10 @@ export const data = {
     title: "DaaS, via the Origin 360 Business Fleet",
     lead: "Origin Energy has committed the Origin 360 Business Fleet of electric vehicles to Gonje. Delivery (Data) as a Service gives Gonje vendors and suppliers access to it — for employee vehicles and for the logistics side of running a delivery business.",
   } satisfies PageIntro,
-  fleetPartner: "Origin 360 Business Fleet",
+  fleetPartner: {
+    name: "Origin 360 Business Fleet",
+    logo: "/company_logos/daas/origin.webp",
+  },
   /** From daas.txt (review, 2026-09-25) — the driver app doesn't exist yet, shown as in development rather than a working feature. */
   driverApp: {
     eyebrow: "Driver app",

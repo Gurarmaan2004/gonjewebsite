@@ -219,6 +219,17 @@
     border-radius: 0.7rem 0.3rem 0.7rem 0.3rem;
   }
 
+  /* Hides the scrollbar on a native scroll-snap track (the supplier
+     carousel) while leaving the element scrollable by drag/swipe/keyboard —
+     the row of arrow buttons is the visible affordance instead. */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Warm paper fibre. Denser and browner than .bg-grain so a cream field
      reads as stock, not as flat #FDF4E3. */
   .bg-paper {
