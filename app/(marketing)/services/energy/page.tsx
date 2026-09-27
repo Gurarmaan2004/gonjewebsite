@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
-import { energy } from "@/content/services";
+import { energy, originAccelerate } from "@/content/services";
 import { ContactForm } from "@/components/sections/contact-form";
 import { PageHero } from "@/components/sections/page-hero";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { LogoSlot } from "@/components/ui/logo-slot";
+import { ProseLink } from "@/components/ui/prose-link";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -37,6 +38,29 @@ export default function EnergyServicePage() {
       </Section>
 
       <Section tone="muted">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <Reveal variant="scale" className="mx-auto w-full max-w-xs">
+            <LogoSlot
+              src={energy.partners.find((p) => p.name === "Origin")?.logo}
+              name="Origin"
+              className="h-40"
+            />
+          </Reveal>
+
+          <div>
+            <SectionHeading
+              eyebrow={originAccelerate.eyebrow}
+              title={originAccelerate.title}
+              lead={originAccelerate.description}
+            />
+            <ProseLink href={originAccelerate.sourceHref} external className="mt-4 inline-block text-sm">
+              {originAccelerate.sourceLabel}
+            </ProseLink>
+          </div>
+        </div>
+      </Section>
+
+      <Section>
         <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
           <SectionHeading
             eyebrow={energy.evCharging.eyebrow}
@@ -72,7 +96,7 @@ export default function EnergyServicePage() {
         </div>
       </Section>
 
-      <Section>
+      <Section tone="muted">
         <SectionHeading
           eyebrow={energy.audiences.eyebrow}
           title={energy.audiences.title}
@@ -90,7 +114,7 @@ export default function EnergyServicePage() {
         </ul>
       </Section>
 
-      <Section tone="muted">
+      <Section>
         <ul className="grid gap-x-8 gap-y-10 sm:grid-cols-3">
           {energy.benefits.map((benefit, index) => (
             <Reveal as="li" key={benefit.title} delay={index * 0.12}>
@@ -114,7 +138,7 @@ export default function EnergyServicePage() {
         </ul>
       </Section>
 
-      <Section>
+      <Section tone="muted">
         <div className="mx-auto max-w-xl">
           <SectionHeading
             eyebrow="Get in touch"

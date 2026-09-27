@@ -60,4 +60,8 @@ export const footerNav: readonly {
     heading: "Company",
     links: [{ label: "About Gonje", href: "/about" }],
   },
+  {
+    heading: "Legal",
+    links: [{ label: "Terms & Conditions", href: "/legal/terms" }],
+  },
 ];

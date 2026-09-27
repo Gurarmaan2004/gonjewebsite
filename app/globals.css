@@ -219,15 +219,26 @@
     border-radius: 0.7rem 0.3rem 0.7rem 0.3rem;
   }
 
-  /* Hides the scrollbar on a native scroll-snap track (the supplier
-     carousel) while leaving the element scrollable by drag/swipe/keyboard —
-     the row of arrow buttons is the visible affordance instead. */
-  .scrollbar-none {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  /* Continuous logo marquee (supplier carousel). The track renders its list
+     twice, so translating exactly -50% loops seamlessly back to the start. */
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
-  .scrollbar-none::-webkit-scrollbar {
-    display: none;
+  .animate-marquee {
+    animation: marquee 26s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+    }
   }
 
   /* Warm paper fibre. Denser and browner than .bg-grain so a cream field

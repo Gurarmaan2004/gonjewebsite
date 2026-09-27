@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { intro, suppliers, closing } from "@/content/suppliers";
+import { closing, intro, marqueeDescription, stat, suppliers } from "@/content/suppliers";
 import { PageHero } from "@/components/sections/page-hero";
 import { SupplierCarousel } from "@/components/sections/supplier-carousel";
+import { MarkerSwipe } from "@/components/ui/marker";
+import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { ProseLink } from "@/components/ui/prose-link";
 
@@ -16,10 +18,17 @@ export default function SuppliersPage() {
       <PageHero intro={intro} highlight="ethnic food shelves" />
 
       <Section>
-        <p className="text-center text-sm text-spice-ink/60">
-          Tap a logo to visit that supplier on the marketplace.
+        <Reveal variant="scale" className="mx-auto max-w-3xl text-center">
+          <h2 className="font-display text-4xl font-bold text-balance text-spice-ink sm:text-5xl lg:text-6xl">
+            <MarkerSwipe color="turmeric">{stat.value}</MarkerSwipe> {stat.label}
+          </h2>
+        </Reveal>
+
+        <SupplierCarousel suppliers={suppliers} className="mt-14" />
+
+        <p className="mx-auto mt-10 max-w-2xl text-center text-base leading-relaxed text-spice-ink/70">
+          {marqueeDescription}
         </p>
-        <SupplierCarousel suppliers={suppliers} className="mt-8" />
       </Section>
 
       <Section tone="muted" size="sm">

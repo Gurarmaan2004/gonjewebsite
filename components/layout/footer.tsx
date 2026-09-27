@@ -69,7 +69,7 @@ export function Footer() {
           </div>
 
           {/* Link groups */}
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-3">
             {footerNav.map((group) => (
               <nav key={group.heading} aria-label={group.heading}>
                 <h2 className="font-marker text-2xl font-normal text-spice-turmeric">
@@ -129,11 +129,12 @@ export function Footer() {
               ))}
             </ul>
           ) : (
-            /* Legal pages and social profiles are pending — see DESIGN.md §7.
-               Nothing is linked here until the real routes/URLs exist, so the
-               footer never ships a 404. */
+            /* Privacy and Refunds pages are still pending — see DESIGN.md §7.
+               Terms & Conditions is real and linked above; nothing links to
+               the other two until their routes exist, so the footer never
+               ships a 404. */
             <p className="text-spice-cream/45">
-              Terms, Privacy and Refunds pages coming soon.
+              Privacy and Refunds pages coming soon.
             </p>
           )}
         </div>

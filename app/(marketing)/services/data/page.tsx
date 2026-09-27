@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Smartphone } from "lucide-react";
-import { data } from "@/content/services";
+import { data, originAccelerate } from "@/content/services";
 import { ContactForm } from "@/components/sections/contact-form";
 import { PageHero } from "@/components/sections/page-hero";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { LogoSlot } from "@/components/ui/logo-slot";
+import { ProseLink } from "@/components/ui/prose-link";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -24,11 +25,21 @@ export default function DataServicePage() {
       <PageHero intro={data.intro} highlight="Origin 360 Business Fleet" />
 
       <Section>
-        <p className="text-sm font-bold tracking-wide text-spice-ink/50 uppercase">
-          Fleet partner
-        </p>
-        <div className="mt-4 max-w-xs">
-          <LogoSlot src={data.fleetPartner.logo} name={data.fleetPartner.name} />
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <Reveal variant="scale" className="mx-auto w-full max-w-xs">
+            <LogoSlot src={data.fleetPartner.logo} name={data.fleetPartner.name} className="h-40" />
+          </Reveal>
+
+          <div>
+            <SectionHeading
+              eyebrow={originAccelerate.eyebrow}
+              title={originAccelerate.title}
+              lead={originAccelerate.description}
+            />
+            <ProseLink href={originAccelerate.sourceHref} external className="mt-4 inline-block text-sm">
+              {originAccelerate.sourceLabel}
+            </ProseLink>
+          </div>
         </div>
       </Section>
 

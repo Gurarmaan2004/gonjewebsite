@@ -9,6 +9,20 @@ import type { Feature, PageIntro } from "./types";
  * Partner logos live in /public/company_logos/eaas and /company_logos/daas.
  */
 
+/**
+ * Origin's own EV fleet program, as officially described on arena.gov.au
+ * (fetched 2026-09-28) — used on both service pages wherever Origin's role
+ * is explained, rather than us describing the partnership ourselves.
+ */
+export const originAccelerate = {
+  eyebrow: "Backed by Origin Accelerate",
+  title: "Origin's EV fleet program, backed by ARENA",
+  description:
+    "Origin Energy partners with Custom Fleet on the Origin Accelerate EV Fleet Program — backed by $6.17 million from the Australian Renewable Energy Agency (ARENA) to lease 1,000 battery electric vehicles to Australian businesses and install 1,000 smart chargers, building the charging supply chains and second-hand BEV market needed to make fleet electrification affordable at scale.",
+  sourceLabel: "Origin Accelerate EV Fleet Program — arena.gov.au",
+  sourceHref: "https://arena.gov.au/projects/origin-accelerate-ev-fleet-program/",
+} as const;
+
 export const overview: PageIntro = {
   eyebrow: "Services",
   title: "More than a marketplace listing",

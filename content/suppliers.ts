@@ -8,6 +8,20 @@ export const intro: PageIntro = {
 };
 
 /**
+ * Headline stat above the logo marquee, as supplied in review. This counts
+ * the whole Gonje vendor/supplier network on the marketplace, not just the
+ * four suppliers named on this page — it isn't yet cross-checked against a
+ * verified figure in lib/site.ts, so confirm the number before this ships.
+ */
+export const stat = {
+  value: "100+",
+  label: "local businesses are benefitting from Gonje",
+};
+
+export const marqueeDescription =
+  "Every logo above is a real, independent business already selling through Gonje — from West African snack makers to fresh juice producers and full-service caterers. Tap a logo to see what they're stocking on the marketplace.";
+
+/**
  * Current Gonje suppliers, as named in review. Role descriptions are a
  * reasonable starting draft based on each supplier's own public branding —
  * not verified copy from the suppliers themselves. Replace with their
