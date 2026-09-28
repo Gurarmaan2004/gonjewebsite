@@ -6,7 +6,7 @@ export const primaryNav: readonly NavItem[] = [
   { label: "How it works", href: "/how-it-works" },
   { label: "For vendors", href: "/vendors" },
   {
-    label: "Services",
+    label: "Venues",
     href: "/services",
     children: [
       { label: "Energy as a Service", href: "/services/energy" },
