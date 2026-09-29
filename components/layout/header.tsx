@@ -161,7 +161,7 @@ export function Header() {
             onAnimationComplete={(definition) => {
               if (definition === "shown") closeRef.current?.focus();
             }}
-            className="fixed inset-0 z-60 flex flex-col bg-spice-cream/92 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-60 flex flex-col overflow-y-auto overscroll-contain bg-spice-cream/92 backdrop-blur-xl md:hidden"
           >
             <div
               aria-hidden="true"

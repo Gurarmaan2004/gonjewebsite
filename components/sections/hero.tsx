@@ -26,9 +26,8 @@ import boxSrc from "@/public/grocery-1.webp";
  * no longer used here — it is the exact illustration style being moved away from.
  */
 export function Hero() {
-  const location = useVisitorLocation();
-  const kicker = location ? `Hello from ${location.city}!` : hero.kickerFallback;
-  const city = location?.nearestCity ?? hero.titleCityFallback;
+  const detectedCity = useVisitorLocation();
+  const city = detectedCity ?? hero.titleCityFallback;
 
   return (
     <section className="relative isolate overflow-hidden bg-spice-cream">
@@ -55,7 +54,7 @@ export function Hero() {
         <div>
           <Reveal variant="left">
             <p className="font-marker text-2xl text-spice-terracotta sm:text-3xl">
-              {kicker}
+              {hero.kicker}
             </p>
           </Reveal>
 

@@ -5,10 +5,8 @@ import type { Cta, Feature, PageIntro } from "./types";
 export const mission = missionStatement;
 
 /**
- * Team entries. Bios are generic placeholders for the role, supplied in
- * review pending real copy — replace before this goes live. Tony has a
- * supplied headshot; Beau's is still pending, so it renders via <AvatarSlot>
- * with no `src`.
+ * Team entries. Bio is a generic placeholder for the role, supplied in
+ * review pending real copy — replace before this goes live.
  */
 export const team: readonly {
   name: string;
@@ -21,11 +19,6 @@ export const team: readonly {
     title: "Founder & CEO",
     bio: "Tony founded Gonje to give local, independent food businesses the same reach and tools as the big chains, without asking them to give up what makes them independent. He leads the company's overall direction and strategy.",
     image: "/avatars/tony.jpg",
-  },
-  {
-    name: "Beau Wilkin",
-    title: "Project Manager",
-    bio: "Beau keeps Gonje's projects moving — coordinating across the team, tracking delivery against plan, and making sure the details don't get lost between strategy and shipping.",
   },
 ];
 

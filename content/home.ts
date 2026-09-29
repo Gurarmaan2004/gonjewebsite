@@ -4,11 +4,12 @@ import type { Category, Cta, Feature, Step } from "./types";
 
 export const hero = {
   /**
-   * Handwritten kicker above the headline. Swapped for "Hello from {city}!"
-   * once IP-based geolocation resolves client-side (see useVisitorLocation)
-   * — this is the fallback shown until then (or if it fails/is blocked).
+   * Handwritten kicker above the headline. Static — per review, the only
+   * place on the hero that names a city is the title itself; the kicker and
+   * lead stay city-free even though useVisitorLocation resolves a city for
+   * the title.
    */
-  kickerFallback: "Discover the food, groceries and flavours that feel like home.",
+  kicker: "Discover the food, groceries and flavours that feel like home.",
   /** `titleHighlight` gets the hand-drawn marker swipe behind it. */
   title: "The flavours of home,",
   /**
@@ -20,9 +21,8 @@ export const hero = {
   titleHighlightPrefix: "delivered across",
   titleCityFallback: "Melbourne",
   /* Every category named here is verified on the marketplace — see lib/site.ts.
-     "Multicultural" is the differentiator CLAUDE.md §1 calls out — this is not
-     a generic Melbourne grocery app, so it leads the copy rather than trailing it. */
-  lead: `Halal and kosher shelves, organic growers and specialty kitchens cooking the dishes that taste like home — from independent vendors serving Melbourne's multicultural communities. Food arrives ${service.foodDeliveryFrom.toLowerCase()}, groceries ${service.groceryDeliveryWindow}.`,
+     "Multicultural" is the differentiator CLAUDE.md §1 calls out. */
+  lead: `Halal and kosher shelves, organic growers and specialty kitchens cooking the dishes that taste like home — from independent vendors serving multicultural communities near you. Food arrives ${service.foodDeliveryFrom.toLowerCase()}, groceries ${service.groceryDeliveryWindow}.`,
   mission: missionStatement,
   /** Short factual proof points sat under the lead. CTAs live in the header only. */
   proofPoints: [
@@ -142,15 +142,10 @@ export const vendorCta = {
   } satisfies Cta,
 } as const;
 
-/**
- * Influencer storefronts — an upcoming Gonje feature, not yet live on the
- * marketplace (checked 2026-09-17: no influencer sign-up flow or page
- * exists there yet). Framed as "coming soon" rather than a working CTA to
- * a plan or price that hasn't been published.
- */
+/** Influencer storefronts — live, per review (2026-09-29). */
 export const influencerCta = {
-  eyebrow: "Coming soon",
+  eyebrow: "For influencers",
   title: "Sell through your own storefront",
-  lead: "Influencers will be able to curate and on-sell Gonje vendor products through a storefront of their own — reaching their audience without running fulfilment themselves.",
-  cta: { label: "Register your interest", href: "/influencers" } satisfies Cta,
+  lead: "Influencers curate and on-sell products from participating suppliers through a storefront of their own — unlimited products, unlimited revenue potential, on a flat 10% transaction fee.",
+  cta: { label: "See the influencer plan", href: "/influencers" } satisfies Cta,
 } as const;

@@ -121,7 +121,7 @@ export default function AboutPage() {
           eyebrow="Who's behind it"
           title="The people running Gonje"
         />
-        <ul className="mx-auto mt-12 grid max-w-3xl gap-8 sm:grid-cols-2">
+        <ul className="mx-auto mt-12 grid max-w-md gap-8">
           {team.map((person, index) => (
             <Reveal as="li" key={person.name} delay={index * 0.12}>
               <Card className="flex h-full flex-col items-center p-8 text-center sm:p-10">

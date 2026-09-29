@@ -3,23 +3,18 @@
 import { useEffect, useState } from "react";
 import { nearestMajorCity } from "@/lib/major-cities";
 
-type VisitorLocation = {
-  /** Raw city from the IP lookup, for a personal "Hello from {city}!" greeting. */
-  city: string;
-  /** Nearest entry in the curated major-cities list, for the hero title. */
-  nearestCity: string;
-};
-
 /**
- * One shared IP-geolocation lookup for the hero, used for both the kicker
- * greeting and the title's city. Centralised here rather than fetched twice
- * (once per piece of UI) to avoid double-hitting the free geolocation API.
+ * IP-geolocation lookup for the hero title's city — the only place on the
+ * hero that names a city (review decision: kicker and lead stay city-free).
+ * Resolves to the nearest entry in the curated major-cities list, not the
+ * raw city from the lookup, so the title always reads as a recognisable
+ * place name.
  *
  * Returns `null` until the lookup resolves, and stays `null` permanently if
- * it fails, is blocked, or times out — callers fall back to static copy.
+ * it fails, is blocked, or times out — the caller falls back to static copy.
  */
-export function useVisitorLocation(): VisitorLocation | null {
-  const [location, setLocation] = useState<VisitorLocation | null>(null);
+export function useVisitorLocation(): string | null {
+  const [city, setCity] = useState<string | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -36,13 +31,11 @@ export function useVisitorLocation(): VisitorLocation | null {
         }) => {
           if (data.success === false || !data.city) return;
 
-          setLocation({
-            city: data.city,
-            nearestCity:
-              typeof data.latitude === "number" && typeof data.longitude === "number"
-                ? nearestMajorCity(data.latitude, data.longitude)
-                : data.city,
-          });
+          setCity(
+            typeof data.latitude === "number" && typeof data.longitude === "number"
+              ? nearestMajorCity(data.latitude, data.longitude)
+              : data.city,
+          );
         },
       )
       .catch(() => {
@@ -57,5 +50,5 @@ export function useVisitorLocation(): VisitorLocation | null {
     };
   }, []);
 
-  return location;
+  return city;
 }

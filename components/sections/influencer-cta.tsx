@@ -6,16 +6,16 @@ import { Section } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 
 /**
- * Teaser for the upcoming influencer storefront feature — a distinct section
- * rather than a footnote, since it's a real forthcoming product surface
- * (per review feedback), even though it isn't live on the marketplace yet.
+ * Teaser for the influencer storefront feature — a distinct section rather
+ * than a footnote, since it's a first-class way to sell on Gonje (per review
+ * feedback), not just an afterthought under vendors.
  */
 export function InfluencerCta() {
   return (
     <Section tone="brand">
       <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
         <Reveal className="max-w-xl">
-          <Badge tone="warning">{influencerCta.eyebrow}</Badge>
+          <Badge tone="brand">{influencerCta.eyebrow}</Badge>
           <h2 className="font-display mt-3 text-3xl text-balance text-spice-ink sm:text-4xl">
             {influencerCta.title}
           </h2>

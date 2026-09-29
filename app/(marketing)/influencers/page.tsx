@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { benefits, intro, status } from "@/content/influencers";
+import { Check } from "lucide-react";
+import { benefits, cta, intro, plan } from "@/content/influencers";
 import { CtaBand } from "@/components/sections/cta-band";
 import { PageHero } from "@/components/sections/page-hero";
-import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
@@ -51,21 +52,34 @@ export default function InfluencersPage() {
       </Section>
 
       <Section tone="muted">
-        <Reveal className="mx-auto max-w-xl text-center">
-          <div className="flex justify-center">
-            <Badge tone="warning">{status.title}</Badge>
-          </div>
-          <p className="mt-4 text-lg leading-relaxed text-spice-ink/75">
-            {status.lead}
-          </p>
+        <SectionHeading eyebrow={plan.eyebrow} title={plan.title} lead={plan.lead} align="center" />
+
+        <Reveal variant="scale" delay={0.1}>
+          <Card className="mx-auto mt-10 max-w-2xl">
+            <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-spice-ink/15 pb-6">
+              <p className="font-display text-lg text-spice-ink">{plan.fee.label}</p>
+              <p className="font-display text-4xl text-spice-ink">{plan.fee.value}</p>
+            </div>
+            <p className="mt-3 text-sm text-spice-ink/65">{plan.fee.note}</p>
+
+            <ul className="mt-6 space-y-4 border-t border-spice-ink/15 pt-6">
+              {plan.points.map((point) => (
+                <li key={point.title} className="flex items-start gap-3">
+                  <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-spice-turmeric/20">
+                    <Check className="size-3.5 text-spice-green" aria-hidden="true" />
+                  </span>
+                  <span>
+                    <span className="font-semibold text-spice-ink">{point.title}</span>
+                    <span className="text-spice-ink/75"> — {point.description}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </Card>
         </Reveal>
       </Section>
 
-      <CtaBand
-        title="Want to be first in?"
-        lead="Leave your details and we'll reach out as soon as influencer storefronts open."
-        primaryCta={status.cta}
-      />
+      <CtaBand title={cta.title} lead={cta.lead} primaryCta={cta.primaryCta} />
     </>
   );
 }
