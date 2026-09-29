@@ -12,9 +12,9 @@ export const site = {
   name: "Gonje",
   /** Used by Metadata.metadataBase. Override per environment if needed. */
   url: "https://gonje.com",
-  tagline: "Local vendors, delivered across Melbourne.",
+  tagline: "Local vendors, delivered fast.",
   description:
-    "Gonje connects you with local restaurants, grocers and specialty suppliers across Melbourne — delivered fast, or ready for pickup.",
+    "Gonje connects you with local restaurants, grocers and specialty suppliers near you — delivered fast, or ready for pickup.",
   locale: "en-AU",
 } as const;
 

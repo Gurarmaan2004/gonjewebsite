@@ -11,6 +11,7 @@ export const primaryNav: readonly NavItem[] = [
     children: [
       { label: "Energy as a Service", href: "/services/energy" },
       { label: "Data as a Service", href: "/services/data" },
+      { label: "Software as a Service", href: "/services/saas" },
     ],
   },
   { label: "Influencers", href: "/influencers" },
@@ -54,6 +55,7 @@ export const footerNav: readonly {
     links: [
       { label: "Energy as a Service", href: "/services/energy" },
       { label: "Data as a Service", href: "/services/data" },
+      { label: "Software as a Service", href: "/services/saas" },
     ],
   },
   {

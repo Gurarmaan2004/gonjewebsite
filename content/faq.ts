@@ -14,7 +14,7 @@ export const faqs: readonly FaqItem[] = [
   {
     question: "Where does Gonje deliver?",
     answer:
-      "Across Melbourne. Coverage depends on which vendors deliver to your address, so enter your address on the marketplace to see what's available to you.",
+      "Coverage depends on which vendors deliver to your address — enter it on the marketplace to see what's available to you.",
   },
   {
     question: "Can I pick my order up instead?",

@@ -21,7 +21,7 @@ export default function ServicesPage() {
       <PageHero intro={overview} highlight="a marketplace listing" />
 
       <Section>
-        <ul className="grid gap-6 sm:grid-cols-2">
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {overviewItems.map((item, index) => (
             <Reveal as="li" key={item.href} delay={index * 0.12}>
               <Link href={item.href} className="block h-full">

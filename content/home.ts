@@ -68,7 +68,7 @@ export const howItWorks = {
 
 export const categories = {
   eyebrow: "What's on Gonje",
-  title: "Built for Melbourne's multicultural kitchens",
+  title: "Built for multicultural kitchens",
   lead: "Halal, kosher and home-country staples sit alongside the everyday shop — not an afterthought. The full range lives on the marketplace.",
   items: [
     {
@@ -97,12 +97,12 @@ export const categories = {
 export const trust = {
   eyebrow: "Why Gonje",
   title: "Built around local businesses",
-  lead: "We're a Melbourne company working with the shops in your suburb — not a national app passing through.",
+  lead: "We're a local company working with the shops in your suburb — not a national app passing through.",
   features: [
     {
       title: "Rooted in community",
       description:
-        "We back the cultural events and multicultural food businesses that make Melbourne worth eating in — this isn't a national app passing through.",
+        "We back the cultural events and multicultural food businesses that make your neighbourhood worth eating in — this isn't a national app passing through.",
       icon: "users",
     },
     {

@@ -24,7 +24,7 @@ export function DeliveryWindows({ className }: { className?: string }) {
       <div className="flex items-center justify-between gap-4">
         <h2 className="font-display text-lg text-spice-ink">Delivery windows</h2>
         <Badge tone="success" dot>
-          Melbourne
+          Delivering now
         </Badge>
       </div>
 

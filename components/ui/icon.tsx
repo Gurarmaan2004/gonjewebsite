@@ -1,7 +1,9 @@
 import {
+  Bot,
   Building2,
   Car,
   Clock,
+  Code2,
   CreditCard,
   Database,
   HeartHandshake,
@@ -50,6 +52,8 @@ const icons: Record<IconName, LucideIcon> = {
   car: Car,
   building: Building2,
   mail: Mail,
+  bot: Bot,
+  code: Code2,
 };
 
 export function Icon({

@@ -31,7 +31,7 @@ export const team: readonly {
 
 export const intro: PageIntro = {
   eyebrow: "About Gonje",
-  title: "A Melbourne delivery platform built around local shops",
+  title: "A delivery platform built around local shops",
   lead: "Gonje connects people with the restaurants, grocers and specialty suppliers already in their neighbourhood — and gives those businesses a way to sell online without building the machinery themselves.",
 };
 

@@ -3,7 +3,7 @@ import type { PageIntro } from "./types";
 
 export const intro: PageIntro = {
   eyebrow: "Suppliers",
-  title: "The suppliers behind Melbourne's ethnic food shelves",
+  title: "The suppliers behind our ethnic food shelves",
   lead: "Gonje works with specialty suppliers who import, make and distribute the ethnic foods that are hard to find in a standard supermarket — from West African snacks to fresh juices and catering.",
 };
 
@@ -47,7 +47,7 @@ export const suppliers: readonly {
   {
     name: "Felicio's",
     description:
-      "A long-running multicultural snack and provisions brand, stocking the branded pantry staples familiar to Melbourne's African and Caribbean communities.",
+      "A long-running multicultural snack and provisions brand, stocking the branded pantry staples familiar to African and Caribbean communities.",
     logo: "/company_logos/suppliers/Felicios.webp",
     href: externalLinks.marketplace,
   },

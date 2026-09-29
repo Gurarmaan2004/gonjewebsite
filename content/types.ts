@@ -28,7 +28,9 @@ export type IconName =
   | "database"
   | "car"
   | "building"
-  | "mail";
+  | "mail"
+  | "bot"
+  | "code";
 
 export type Cta = {
   label: string;

@@ -26,7 +26,7 @@ export const originAccelerate = {
 export const overview: PageIntro = {
   eyebrow: "Services",
   title: "More than a marketplace listing",
-  lead: "Gonje partners with energy and fleet providers to bring vendors and suppliers benefits beyond the storefront — energy savings for the premises, and delivery/logistics support for the business.",
+  lead: "Gonje partners with energy and fleet providers, and builds its own software, to bring vendors and suppliers benefits beyond the storefront — energy savings for the premises, logistics support for the business, and the technology to run it.",
 };
 
 export const overviewItems: readonly {
@@ -48,6 +48,13 @@ export const overviewItems: readonly {
       "Fleet and logistics support for vendors and suppliers, including plans for employee and delivery vehicles.",
     href: "/services/data",
     icon: "database",
+  },
+  {
+    title: "Software as a Service (SaaS)",
+    description:
+      "The software behind Gonje itself — POS, reporting, marketing, e-commerce and AI — extended to your business.",
+    href: "/services/saas",
+    icon: "code",
   },
 ];
 
@@ -166,5 +173,80 @@ export const data = {
   closingCta: {
     title: "Ask about the fleet plans",
     lead: "Tell us about your vehicle or delivery needs and we'll follow up with the right plan.",
+  },
+} as const;
+
+/**
+ * Software as a Service (SaaS) — Gonje's own technology, offered to vendors
+ * and suppliers rather than kept internal. Unlike EaaS/DaaS this isn't a
+ * named third-party partnership, so descriptions are framed around what
+ * Gonje's software already does (vendor dashboards, order substitution
+ * logic, the DaaS driver app) rather than a signed external deal.
+ */
+export const saas = {
+  intro: {
+    eyebrow: "Software as a Service",
+    title: "The software that runs Gonje, for your business",
+    lead: "Gonje is a technology company as much as a marketplace. SaaS makes that same software — the systems behind your storefront, your orders and your payouts — available to run more of your business, not just the part that sells through Gonje.",
+  } satisfies PageIntro,
+  capabilities: [
+    {
+      title: "Scan QR to POS",
+      description:
+        "A customer scans a QR code at your counter to pay or collect a pickup order — it lands in the same Gonje dashboard as your online sales, so in-store and online are never two separate systems to reconcile.",
+      icon: "credit-card",
+    },
+    {
+      title: "Sales reporting",
+      description:
+        "One sales report across your Gonje storefront and in-counter QR/POS sales, building on the performance dashboards already included with your vendor account.",
+      icon: "line-chart",
+    },
+    {
+      title: "Customer service",
+      description:
+        "Helpdesk and live-chat tooling for your own storefront, on top of the 24/7 seller support Gonje already provides — so you're not running support on a spreadsheet and a shared inbox.",
+      icon: "headphones",
+    },
+    {
+      title: "Marketing automation",
+      description:
+        "Automated re-engagement emails, repeat-order reminders and personalised offers, extending the marketing and promotional placement already included with your Gonje storefront.",
+      icon: "megaphone",
+    },
+    {
+      title: "E-commerce",
+      description:
+        "Your Gonje storefront is a full e-commerce shopfront already — listings, checkout and payments, without you building or hosting any of it. SaaS is what lets that same engine power more of your business.",
+      icon: "shopping-basket",
+    },
+    {
+      title: "Data analytics",
+      description:
+        "Deeper trend, demand and customer analysis on top of the inventory management and quote-request reporting already in your vendor account.",
+      icon: "database",
+    },
+    {
+      title: "Artificial intelligence",
+      description:
+        "The same kind of logic already behind order substitutions and payment security checks on the Gonje marketplace — applied to demand forecasting, fraud detection and product recommendations for your own storefront.",
+      icon: "sparkles",
+    },
+    {
+      title: "Agentic AI",
+      description:
+        "An AI agent that can act, not just report — re-ordering stock, adjusting pricing within limits you set, or handling routine customer questions on your behalf.",
+      icon: "bot",
+    },
+    {
+      title: "Application development",
+      description:
+        "The same team building Gonje's driver app (see Data as a Service) is available to build custom features, integrations or internal tools for your business.",
+      icon: "code",
+    },
+  ] satisfies readonly Feature[],
+  closingCta: {
+    title: "Ask about SaaS for your business",
+    lead: "Tell us what you're trying to solve and we'll follow up with what's available.",
   },
 } as const;
