@@ -84,3 +84,17 @@ export const socialLinks: ReadonlyArray<{
   href: string;
   icon: "facebook" | "instagram" | "linkedin" | "youtube";
 }> = [];
+
+/**
+ * Routing for the EaaS/DaaS/SaaS enquiry forms (see ContactForm and
+ * app/api/contact). This is separate from `company.email`/`supportEmail`
+ * above — those are the public-facing addresses shown in the footer; these
+ * are where the enquiry-form submissions actually get sent. The mailbox
+ * itself and its SMTP credentials are configured via environment variables
+ * (see .env.example), not here — this file has no secrets in it.
+ */
+export const contactRouting = {
+  fromAddress: "enquiries@gonje.com",
+  fromName: "Gonje Enquiries",
+  toAddresses: ["anthony@gonje.com", "operations@gonje.com"],
+} as const;
