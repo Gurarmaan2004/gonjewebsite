@@ -36,7 +36,7 @@ export function AvatarSlot({
       role="img"
       aria-label={`${name} — photo coming soon`}
     >
-      <User className="size-12 text-spice-ink/30" aria-hidden="true" strokeWidth={1.5} />
+      <User className="size-1/2 text-spice-ink/30" aria-hidden="true" strokeWidth={1.5} />
     </div>
   );
 }

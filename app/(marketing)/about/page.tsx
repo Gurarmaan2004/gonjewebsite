@@ -120,20 +120,19 @@ export default function AboutPage() {
         <SectionHeading
           eyebrow="Who's behind it"
           title="The people running Gonje"
-          lead="Placeholder team profiles — photos and bios below are examples until the real ones are supplied."
         />
-        <ul className="mt-12 grid gap-8 sm:grid-cols-3">
+        <ul className="mx-auto mt-12 grid max-w-3xl gap-8 sm:grid-cols-2">
           {team.map((person, index) => (
             <Reveal as="li" key={person.name} delay={index * 0.12}>
-              <Card className="flex h-full flex-col items-center text-center">
-                <AvatarSlot name={person.name} />
-                <h3 className="font-display mt-4 text-xl text-spice-ink">
+              <Card className="flex h-full flex-col items-center p-8 text-center sm:p-10">
+                <AvatarSlot name={person.name} src={person.image} className="size-40" />
+                <h3 className="font-display mt-6 text-2xl text-spice-ink">
                   {person.name}
                 </h3>
-                <p className="text-sm font-semibold text-spice-terracotta">
+                <p className="text-base font-semibold text-spice-terracotta">
                   {person.title}
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-spice-ink/70">
+                <p className="mt-3 text-base leading-relaxed text-spice-ink/70">
                   {person.bio}
                 </p>
               </Card>

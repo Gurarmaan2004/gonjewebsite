@@ -5,30 +5,27 @@ import type { Cta, Feature, PageIntro } from "./types";
 export const mission = missionStatement;
 
 /**
- * Placeholder team entries — names, titles and bios are all made up for now
- * (review feedback: "random for now, I will input this data later"). Photos
- * are intentionally left blank; see <AvatarSlot>. Replace every field before
- * this goes live.
+ * Team entries. Bios are generic placeholders for the role, supplied in
+ * review pending real copy — replace before this goes live. Tony has a
+ * supplied headshot; Beau's is still pending, so it renders via <AvatarSlot>
+ * with no `src`.
  */
 export const team: readonly {
   name: string;
   title: string;
   bio: string;
+  image?: string;
 }[] = [
   {
-    name: "Amara Chukwu",
-    title: "Co-Founder & CEO",
-    bio: "Placeholder bio — Amara's background and focus at Gonje to be added.",
+    name: "Tony Onwude",
+    title: "Founder & CEO",
+    bio: "Tony founded Gonje to give local, independent food businesses the same reach and tools as the big chains, without asking them to give up what makes them independent. He leads the company's overall direction and strategy.",
+    image: "/avatars/tony.jpg",
   },
   {
-    name: "David Okafor",
-    title: "Co-Founder & COO",
-    bio: "Placeholder bio — David's background and focus at Gonje to be added.",
-  },
-  {
-    name: "Priya Nair",
-    title: "Head of Vendor Partnerships",
-    bio: "Placeholder bio — Priya's background and focus at Gonje to be added.",
+    name: "Beau Wilkin",
+    title: "Project Manager",
+    bio: "Beau keeps Gonje's projects moving — coordinating across the team, tracking delivery against plan, and making sure the details don't get lost between strategy and shipping.",
   },
 ];
 
