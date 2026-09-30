@@ -28,6 +28,7 @@ import boxSrc from "@/public/grocery-1.webp";
 export function Hero() {
   const detectedCity = useVisitorLocation();
   const city = detectedCity ?? hero.titleCityFallback;
+  const kicker = detectedCity ? `Hello from ${detectedCity}!` : hero.kickerFallback;
 
   return (
     <section className="relative isolate overflow-hidden bg-spice-cream">
@@ -54,7 +55,7 @@ export function Hero() {
         <div>
           <Reveal variant="left">
             <p className="font-marker text-2xl text-spice-terracotta sm:text-3xl">
-              {hero.kicker}
+              {kicker}
             </p>
           </Reveal>
 

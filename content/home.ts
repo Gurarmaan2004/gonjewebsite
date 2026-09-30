@@ -4,17 +4,18 @@ import type { Category, Cta, Feature, Step } from "./types";
 
 export const hero = {
   /**
-   * Handwritten kicker above the headline. Static — per review, the only
-   * place on the hero that names a city is the title itself; the kicker and
-   * lead stay city-free even though useVisitorLocation resolves a city for
-   * the title.
+   * Handwritten kicker above the headline. Swapped for "Hello from {city}!"
+   * once IP-based geolocation resolves client-side (see useVisitorLocation)
+   * — this is the fallback shown until then (or if it fails/is blocked).
+   * Hero.tsx reads the same resolved city for this and for `titleHighlightPrefix`
+   * below, so the two can never disagree on what city they're naming.
    */
-  kicker: "Discover the food, groceries and flavours that feel like home.",
+  kickerFallback: "Discover the food, groceries and flavours that feel like home.",
   /** `titleHighlight` gets the hand-drawn marker swipe behind it. */
   title: "The flavours of home,",
   /**
-   * `titleHighlightPrefix` + the visitor's nearest major city (falling back
-   * to `titleCityFallback`) makes up titleHighlight — see useVisitorLocation.
+   * `titleHighlightPrefix` + the visitor's detected city (falling back to
+   * `titleCityFallback`) makes up titleHighlight — see useVisitorLocation.
    * Per review decision, this always shows the detected city, even outside
    * Melbourne where Gonje doesn't deliver yet.
    */
